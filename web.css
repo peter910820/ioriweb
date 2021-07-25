@@ -25,99 +25,65 @@
 .image2{
     border: 5px dashed #efb864; 
 }
-.div{
-    width:1300px ;
-    height:500px ;
-}
-.flex {
-    /* basic styling */
-    width: 350px;
-    height: 200px;
-    border: 1px solid #555;
-    font: 14px Arial;
 
-    /* flexbox setup */
-    display: flex;
-    flex-direction: row;
-}
 
-#main {
-    min-height: 800px;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-flow: row;
-}
 
-#main > article {    
-    min-height: 800px;
+
+
+
+#main > article {
+    margin: 4px;
     padding: 5px;
     border: 1px solid #cccc33;
+    border-radius: 7pt;
+    background: #dddd88;
     flex: 3 1 60%;
-    background-color: rgba(255, 255, 255, 0.8);
     order: 2;
 }
 
 #main > nav {
-    min-height: 800px;
+    margin: 4px;
     padding: 5px;
     border: 1px solid #8888bb;
-    background-color: rgba(0, 0, 0, 0.6); 
+    border-radius: 7pt;
+    background: #ccccff;
     flex: 1 6 20%;
     order: 1;
 }
 
-/*#main > aside {
-    margin: 4px;
-    padding: 5px;
-    border: 1px solid #8888bb;
-    border-radius: 7pt;
-    background-color: rgba(0, 0, 0, 0.7); 
-    flex: 1 6 20%;
-    order: 3;
-}*/
+.box {
+    height: 1080px;
+    width: 1500px;
+    border: #696969 1px solid;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .item {
+    width: 300px;
+  }
+  
+  .item1 {
+    background: rgba(0, 0, 0, 0.7);  
+    overflow:auto;
+  }
+  
+  .item2 {
+    background: rgba(255, 255, 255, 0.5);
+    flex-grow: 1;
+  }
+  
+  .item3 {
+    background: #faf;
+  }
 
 
 .body{
     background-image: url("img/backgroundnew.png");
-    background-attachment:fixed;
+    background-attachment: fixed;
 }
 
-.secoundpage{background-color: rgba(0, 0, 0, 0.6);}
 
-/*
-header, footer {
-    display: block;
-    margin: 4px;
-    padding: 5px;
-    min-height: 100px;
-    border-radius: 7pt;
-}*/
-/*
-.scrollbar::-webkit-scrollbar-track-piece{
-    overflow:auto;
-    background: #000;
-
-}
-
-.father::-webkit-scrollbar{
-    width:10px;
-    height:10px;
-  }
-  .father::-webkit-scrollbar-track{
-    background: rgb(239, 239, 239);
-    border-radius:2px;
-  }
-  .father::-webkit-scrollbar-thumb{
-    background: #bfbfbf;
-    border-radius:10px;
-  }
-  .father::-webkit-scrollbar-thumb:hover{
-    background: #333;
-  }
-  .father::-webkit-scrollbar-corner{
-    background: #179a16;
-}*/
 
 /* 整個捲軸 */
 ::-webkit-scrollbar { width: 15px; }
