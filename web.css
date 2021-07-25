@@ -3,7 +3,7 @@
     font-size:  30px;
     font-weight: bold; 
     font-style: italic; 
-    background-color: #cccc33;  
+    background-color: rgba(0, 0, 0, 0.250); 
 }
 .titleText{
     color : pink ;
