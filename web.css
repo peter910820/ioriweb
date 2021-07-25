@@ -3,7 +3,6 @@
     font-size:  30px;
     font-weight: bold; 
     font-style: italic; 
-    background-color: rgba(0, 0, 0, 0.250); 
 }
 .titleText{
     color : pink ;
@@ -64,8 +63,7 @@
     padding: 5px;
     border: 1px solid #8888bb;
     border-radius: 7pt;
-    background: #ccccff;
-    
+    background-color: rgba(0, 0, 0, 0.250); 
     flex: 1 6 20%;
     order: 1;
 }
