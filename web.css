@@ -55,6 +55,7 @@
     border: 1px solid #cccc33;
     border-radius: 7pt;
     flex: 3 1 60%;
+    background-color: rgba(255, 255, 255, 0.8);
     order: 2;
 }
 
@@ -63,12 +64,12 @@
     padding: 5px;
     border: 1px solid #8888bb;
     border-radius: 7pt;
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(0, 0, 0, 0.6); 
     flex: 1 6 20%;
     order: 1;
 }
 
-#main > aside {
+/*#main > aside {
     margin: 4px;
     padding: 5px;
     border: 1px solid #8888bb;
@@ -76,19 +77,19 @@
     background-color: rgba(0, 0, 0, 0.7); 
     flex: 1 6 20%;
     order: 3;
-}
+}*/
 
-header, footer {
-    display: block;
-    margin: 4px;
-    padding: 5px;
-    min-height: 100px;
-    /*border: 1px solid #eebb55;*/
-    border-radius: 7pt;
-    /*background: #ffeebb;*/
-}
 
 .body{
     background-image: url("img/backgroundnew.png");
     background-attachment:fixed;
 }
+
+/*
+header, footer {
+    display: block;
+    margin: 4px;
+    padding: 5px;
+    min-height: 100px;
+    border-radius: 7pt;
+}*/
