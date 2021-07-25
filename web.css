@@ -1,0 +1,96 @@
+.text{
+    color : orangered;
+    font-size:  30px;
+    font-weight: bold; 
+    font-style: italic; 
+    background-color: #cccc33;  
+}
+.titleText{
+    color : pink ;
+    font-size: 50px;
+    font-weight: bold;  
+}
+.titleText2{
+    color : #efb864;
+    font-size:  50px;
+    font-weight: bold;    
+}
+.titleUrl{
+    color : blueviolet ;
+    font-size: 30px;
+    font-weight: bold;  
+}
+.image1{
+    border: 5px dashed pink;
+}
+.image2{
+    border: 5px dashed #efb864; 
+}
+.div{
+    width:1300px ;
+    height:500px ;
+}
+.flex {
+    /* basic styling */
+    width: 350px;
+    height: 200px;
+    border: 1px solid #555;
+    font: 14px Arial;
+
+    /* flexbox setup */
+    display: flex;
+    flex-direction: row;
+}
+
+#main {
+    min-height: 800px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row;
+}
+
+#main > article {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #cccc33;
+    border-radius: 7pt;
+    flex: 3 1 60%;
+    order: 2;
+}
+
+#main > nav {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
+    background: #ccccff;
+    
+    flex: 1 6 20%;
+    order: 1;
+}
+
+#main > aside {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
+    background: #ccccff;
+    flex: 1 6 20%;
+    order: 3;
+}
+
+header, footer {
+    display: block;
+    margin: 4px;
+    padding: 5px;
+    min-height: 100px;
+    /*border: 1px solid #eebb55;*/
+    border-radius: 7pt;
+    /*background: #ffeebb;*/
+}
+
+.body{
+    background-image: url("img/backgroundnew.png");
+    background-attachment:fixed;
+}

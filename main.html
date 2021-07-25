@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/web.css">
+    <link rel="icon" href="icon.ico">
+    <title>發廚</title>
+    <style>
+    @media all and (max-width: 640px) {
+        #main, #page {
+            flex-direction: column;            
+        }
+        #main > article, #main > nav, #main > aside {
+        /* Return them to document order */
+            order: 0;
+        }
+
+        #main > nav, #main > aside, header, footer {
+            min-height: 50px;
+            max-height: 50px;
+        }
+    }
+    </style>
+</head>
+<body class="body">
+    <header></header>
+    <div id='main'>
+      <article>article</article>
+      <nav><a class="text"></a>>這是一些資料:</a><br>
+        <a href="https://estertion.win/2019/08/mltd%e7%b9%81%e4%b8%ad%e6%9c%8d-api%e9%80%9f%e8%a7%88" target="_blank">mltd繁中服 API速览</a><br>
+        <a href="https://estertion.win/2020/03/show-by-rock-fes-a-live" target="_blank">SHOW BY ROCK – Fes A Live</a>
+      </nav>
+      <aside>aside</aside>
+    </div>
+    <footer>footer</footer>
+  </body>
+</html>
