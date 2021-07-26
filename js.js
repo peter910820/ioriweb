@@ -11,3 +11,10 @@ function play() {
        audio.currentTime = 0;
    }
 }
+
+function toggle1() {
+  document.getElementById('menu').style.overflowY='scroll';
+  }
+function toggle2() {
+  document.getElementById('menu').style.overflowY='hidden';
+}
