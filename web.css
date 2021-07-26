@@ -98,6 +98,12 @@
             font-style: italic;
             color: white;
         }
+        .titleText{
+            font-style: italic;
+            color: white;
+            font-size:10px
+
+        }
 /*
 ::-webkit-scrollbar { width: 15px; }
 ::-webkit-scrollbar-track { background: #fff; }
@@ -120,9 +126,13 @@
 }
 
 .musicContainer{
-    width: 150px;
-    background-color: white;
+    width: 180px;
+    background-color: grey;
 }
 .fix{
-    height: 15px;
+    height: 20px;
+}
+.a{
+    margin-left: 20px;
+    margin-right: 20px;
 }
