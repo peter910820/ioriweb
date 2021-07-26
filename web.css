@@ -37,7 +37,7 @@
   
  .item {
     width: 220px;
-    height: 800px;
+    height:3000px;
     
  }
   
@@ -99,13 +99,9 @@
         }
 /*
 ::-webkit-scrollbar { width: 15px; }
-
 ::-webkit-scrollbar-track { background: #fff; }
-
 ::-webkit-scrollbar-track-piece{ background: #fff; }
-
 ::-webkit-scrollbar-thumb { background: blueviolet; }
-
 ::-webkit-scrollbar-thumb:hover { background: #aaa; }*/
 #audio{
 
