@@ -12,7 +12,7 @@
 .titleText2{
     color : #efb864;
     font-size:  50px;
-    font-weight: bold;    
+    font-weight: bold;  
 }
 .titleUrl{
     color : blueviolet ;
@@ -26,73 +26,104 @@
     border: 5px dashed #efb864; 
 }
 
-
-
-
-
-
-#main > article {
-    margin: 4px;
-    padding: 5px;
-    border: 1px solid #cccc33;
-    border-radius: 7pt;
-    background: #dddd88;
-    flex: 3 1 60%;
-    order: 2;
-}
-
-#main > nav {
-    margin: 4px;
-    padding: 5px;
-    border: 1px solid #8888bb;
-    border-radius: 7pt;
-    background: #ccccff;
-    flex: 1 6 20%;
-    order: 1;
-}
-
 .box {
-    height: 1080px;
+    height: 717px;
     width: 1500px;
-    border: #696969 1px solid;
     display: flex;
     flex-direction: row;
+    margin-left: 0%;
+    
   }
   
-  .item {
-    width: 300px;
-  }
+ .item {
+    width: 220px;
+    height: 10000px;
+    
+ }
   
-  .item1 {
-    background: rgba(0, 0, 0, 0.7);  
+.item1 {
     overflow:auto;
-  }
+    background: rgba(0, 0, 0, 0.5); 
+}
   
-  .item2 {
-    background: rgba(255, 255, 255, 0.5);
+.item2 {
+    background: rgba(255, 255, 255, 0.6);float: left;
     flex-grow: 1;
-  }
-  
-  .item3 {
-    background: #faf;
-  }
+    border:5px #FFAC55 solid; 
+ }
 
+.item3 {
+    float: left;
+ }
 
 .body{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0%;
+    margin-right: 0%;
     background-image: url("img/backgroundnew.png");
     background-attachment: fixed;
 }
+#button{ width: 200px;
+    height: 200px;
+    background-color:#ddd;}
 
+    #menu_toggle{
+        width:40px;
+        height:30px;
+        background-color: #222;
+        border-radius:5px;
+      }
+      
+  
+      #box {
+        display: none;
+        width: 1500px;
+        height: 800px;
+        background-color: red;
+        }
+        #menu {
+            height: 720px;
+            position: fixed;
+            margin-left: 0px;
+            width: 220px;
+            margin-top: 0px;
+            overflow:auto;
+          }
 
-
-/* 整個捲軸 */
+        .test{
+            font-style: italic;
+            color: white;
+        }
+/*
 ::-webkit-scrollbar { width: 15px; }
-/* 捲軸的軌道 */
-::-webkit-scrollbar-track { background: #fff; }
-/*捲軸尚未滑到的軌道*/
-::-webkit-scrollbar-track-piece{ background: #fff; }
-/* 滑動的區塊 */
-::-webkit-scrollbar-thumb { background: blueviolet; }
-/* 滑鼠移到滑動的區塊上 */
-::-webkit-scrollbar-thumb:hover { background: #aaa; }
 
+::-webkit-scrollbar-track { background: #fff; }
+
+::-webkit-scrollbar-track-piece{ background: #fff; }
+
+::-webkit-scrollbar-thumb { background: blueviolet; }
+
+::-webkit-scrollbar-thumb:hover { background: #aaa; }*/
+#audio{
+
+    margin:0.25rem 0;           
+
+    height:30px;
+
+    width: 130px;
+
+    background:rgb(187, 221, 213);
+
+    background: linear-gradient(90deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,1) 100%);
+
+
+}
+
+.musicContainer{
+    width: 150px;
+    background-color: white;
+}
+.fix{
+    height: 15px;
+}
