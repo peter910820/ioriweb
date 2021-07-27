@@ -18,3 +18,14 @@ function toggle1() {
 function toggle2() {
   document.getElementById('menu').style.overflowY='hidden';
 }
+
+function mouseOver()
+{
+var x=document.getElementsByTagName("fix");
+alert(x.length);
+document.getElementById('fix').src ="stop.png"
+}
+function mouseOut()
+{
+document.getElementById('fix').src ="player.png"
+}
