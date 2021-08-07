@@ -29,3 +29,12 @@ function mouseOut()
 {
 document.getElementById('fix').src ="player.png"
 }
+/*===================================================== */
+
+function showTime(){
+  　document.getElementById('showbox').innerHTML = new Date();
+  　setTimeout('ShowTime()',1000);
+  }
+
+  Today = Date();
+  document.write("標準時間:<br><b>"+Today+"</b><br>");
