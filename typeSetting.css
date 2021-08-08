@@ -22,6 +22,15 @@
     height: 35px;
     margin: 2px;
 }
+.subtitletypeSetting{
+    width: 1300px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+.subtitleBack{
+    flex-grow: 2;
+}
 .timer{
     width: 1500px;
     height: 40px;
