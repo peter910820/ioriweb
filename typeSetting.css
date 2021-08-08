@@ -1,0 +1,34 @@
+.body{
+    background-image: url("img/bg.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+.bodyMask {
+    margin:auto;
+    background: rgba(255, 255, 255, 0.5);
+}
+.titletypeSetting{
+    width: 1500px;
+    height: 40px;
+    border: 5px dashed greenyellow;
+    display: flex;
+    flex-direction: row;
+}
+
+.titleMain{
+    flex-grow: 3;
+}
+
+.titleIcon{
+    width: 35px;
+    height: 35px;
+    margin: 2px;
+}
+
+
+.timer{
+    width: 1500px;
+    height: 40px;
+    font-size: 40px;
+    color: coral;
+}

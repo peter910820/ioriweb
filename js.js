@@ -1,3 +1,5 @@
+window.onload =  ShowTime();
+
 window.onload = function(){ 
   var audio = document.getElementById('music');
       audio.pause();
@@ -11,14 +13,7 @@ function play() {
        audio.currentTime = 0;
    }
 }
-
-function toggle1() {
-  document.getElementById('menu').style.overflowY='scroll';
-  }
-function toggle2() {
-  document.getElementById('menu').style.overflowY='hidden';
-}
-
+/*===================================================== */
 function mouseOver()
 {
 var x=document.getElementsByTagName("fix");
@@ -30,11 +25,12 @@ function mouseOut()
 document.getElementById('fix').src ="player.png"
 }
 /*===================================================== */
-
-function showTime(){
-  　document.getElementById('showbox').innerHTML = new Date();
-  　setTimeout('ShowTime()',1000);
+function ShowTime(){
+  var NowDate=new Date();
+　var h=NowDate.getHours();
+　var m=NowDate.getMinutes();
+　var s=NowDate.getSeconds();　
+　document.getElementById('showbox').innerHTML = h+'時'+m+'分'+s+'秒';
+　setTimeout('ShowTime()',1000);
   }
-
-  Today = Date();
-  document.write("標準時間:<br><b>"+Today+"</b><br>");
+/*===================================================== */
