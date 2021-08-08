@@ -1,3 +1,7 @@
+@font-face {
+    font-family:'851MkPOP';
+    src:url('851MkPOP_002.ttf');
+}
 .title{
     color : black;
     font-size:  30px;
@@ -21,4 +25,20 @@
 .mainblockText{
     font-size:  40px;
     font-weight: bold;  
+}
+.flyers{
+    color : black;
+    font-size:  30px;
+    font-weight: bold;
+    font-family:'851MkPOP';
+}
+.noteTitle{
+    color : blue;
+    font-size:  30px;
+    font-weight: bold;
+    font-family:'851MkPOP';
+}
+.noteText{
+    font-size:  20px;
+    font-weight: bold;
 }
