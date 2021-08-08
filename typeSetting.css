@@ -8,27 +8,53 @@
     background: rgba(255, 255, 255, 0.5);
 }
 .titletypeSetting{
-    width: 1500px;
+    width: 1300px;
     height: 40px;
-    border: 5px dashed greenyellow;
+    border: 5px dashed green;
     display: flex;
     flex-direction: row;
 }
-
 .titleMain{
     flex-grow: 3;
 }
-
 .titleIcon{
     width: 35px;
     height: 35px;
     margin: 2px;
 }
-
-
 .timer{
     width: 1500px;
     height: 40px;
     font-size: 40px;
+    font-weight: bold;
     color: coral;
+}
+.main{
+    width: 1300px;
+    height: 800px;
+    border: 5px dashed green;
+    display: flex;
+    flex-direction: column;
+    margin-top:8px ;
+
+}
+.mainInside{
+    width: 1300px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+
+}
+.mainBlock{
+    width:433px;
+    border: 5px dashed red;
+}
+.imageFix{
+    width: 100px;
+    height: 100px;
+    vertical-align:middle;
+}
+.imageFix:hover{
+    transform:scale(1.2,1.2);
+    vertical-align:middle;
 }
