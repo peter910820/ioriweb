@@ -1,2 +1,2 @@
 # ioriweb
-這是mywife
+個人網站
