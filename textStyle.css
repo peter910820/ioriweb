@@ -1,6 +1,10 @@
 @font-face {
     font-family:'851MkPOP';
-    src:url('851MkPOP_002.ttf');
+    src:url('font/851MkPOP_002.ttf');
+}
+@font-face {
+    font-family:'jf-openhuninn';
+    src:url('font/jf-openhuninn-1.1.ttf');
 }
 .title{
     color : black;
@@ -39,6 +43,17 @@
     font-family:'851MkPOP';
 }
 .noteText{
+    font-size:  20px;
+    font-weight: bold;
+}
+.articleTitle{
+    color : black;
+    font-size:  45px;
+    font-weight: bold;
+    font-style: italic;
+    font-family:'jf-openhuninn';
+}
+.articleText{
     font-size:  20px;
     font-weight: bold;
 }

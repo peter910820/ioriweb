@@ -68,3 +68,11 @@
     transform:scale(1.2,1.2);
     vertical-align:middle;
 }
+.articleMain{
+    width: 1300px;
+    border: 5px dashed green;
+    display: flex;
+    flex-direction: column;
+    margin-top:8px ;
+
+}

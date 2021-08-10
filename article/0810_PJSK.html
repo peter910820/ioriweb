@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../textStyle.css">
+    <link rel="stylesheet" href="../typeSetting.css">
+    <link rel="icon" href="../icon.ico">
+    <title>海獺的個人空間</title>
+</head>
+<body class="body" >
+    <div class="bodyMask" align = "center">
+        <div class="titletypeSetting" align = "left">
+            <div class= "titleMain">
+                <a class="title">海獺的家</a><a class="title2">-什麼時候才能成為厲害的人們呢?</a>
+            </div>
+                <a href="https://www.youtube.com/channel/UCB4v828kadFN4rK37TdWq3g" target="_blank">
+                    <img src='../img/icon/youtubeIcon.png' class="titleIcon">
+                </a>
+                <a href="https://twitter.com/seaotterMS" target="_blank">
+                    <img src='../img/icon/twitterIcon.png' class="titleIcon">
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100008609013946" target="_blank">
+                    <img src='../img/icon/facebookIcon.png' class="titleIcon">
+                </a>
+                <a href="https://github.com/peter910820" target="_blank">
+                    <img src='../img/icon/githubIcon.png' class="titleIcon">
+                </a>
+        </div>
+
+        <div class="subtitletypeSetting" align = "left">
+            <div class="subtitleBack">
+                <a href="../index.html" class="title">返回</a>
+            </div>
+            <div>
+                <a class="timer">現在時間:</a>
+            </div>
+            <div>
+            <a id="showbox" class="timer">
+            </a>
+            </div>
+        </div>
+
+        <div class="articleMain">
+            <div class="articleTitle" align="center">PJSK拆包心得</div>
+            <div align="left">
+                <a class="articleText">
+                    MLTD拆包拆了一段時間，還真的扛不住了，想說轉移跑道拆別的，就跑去PJSK了，
+                    結果找了找，果然有人拆過放教學了，那我就來分享一下這次拆包的經歷好了。(感謝黑鯨大大提供的資料，下面腳本的部分有連結，可以去參觀一下)<hr><br>
+                    前製作業就不說了，反正安裝遊戲>下載全部遊戲檔案>然後把Data的東西全部弄出來
+                    甚麼的再簡單不過了(你還不是全講了)，重點在接下來，丟進Assets Studio才發現甚麼
+                    都沒有，隨便找了個檔案打開，挖靠這是甚麼阿，標頭都不對了。<br>
+                   <img src="001.png"><br>
+                    草，這怎麼看都有問題。<br>
+                    趕快找一個之前拆過的MLTD檔案來看看。<br><img src="002.png"><br>
+                    其實就可以發現了，前面有四個混淆字元，刪除即可，重點是Unity字樣的部分，
+                    字元量相同，可是資料的值不對，太神奇了，反正就是要找到美妙的規律就對了，
+                    反正就先走二進制reverse吧，直接弄成二進制，然後0轉1、1轉0，再丟線上轉換器。<br>
+                    <img src="003.png" width="400" height="280"><br>
+                    喔草，就這樣喔...<br>改完後無情丟Assets Studio，果然，還是不行。當然沒那簡單，
+                    走投無路的同時看到了黑鯨大大的文章，因為Unity之後是正確的字元，所以判斷是只取
+                    前面四組字元做反轉，問題是，範圍呢?黑鯨大大的文章提到，前128組字元，作為資料流的
+                    開頭這樣的範圍也算是合理的，所以我就整個手改了一次...<br>
+                    <img src="004.png" width="400" height="280"><br><s>不行的話真的滿好笑的(((</s><br>
+                    然後呢，就可以了(((((<br><img src="005.png"><br>
+                    然後一個一個改真的會死人，所以我整理了黑鯨大大的文章，利用QuickBMS腳本的方式快速產出資料，首先下載QuickBMS，然後在scripts資料夾中放入
+                </a>
+                <a href="https://www.bilibili.com/read/cv7962019" target="view_window" class="articleText">黑鯨</a>
+                <a class="articleText">
+                    大大撰寫的腳本(他文章寫的腳本有問題，請參考留言區的)，直接複製到記事本更改副檔名為bms就好了。然後開啟cmd，一氣呵成的輸入"QuickBMS的位置 腳本的位置 檔案的位置 輸出的位置"(記得要輸入絕對路徑)，enter
+                    就可以慢慢等了。(檔案有6000個左右吧，<s>至少比某公主連結好多了，放了3小時都還沒傳輸完成(O</s>)<br>
+                    <img src="006.png" width="700" height="380"><br>
+                    接著我就繼續看文章，發現音檔有所謂的三層加密，這麼懶的我怎麼可能會去做呢，想當然爾，我直接就用老方法了，結果...竟然就這樣拆出來??而且可以聽，真的不胡扯。<br>
+                    <img src="007.png" width="100" height="380"><br>恩，幹的好craft egg，老方法可以看我的這篇->
+                </a>
+                <a href="https://hazel-output-025.notion.site/MLTD-3D-MMD-04eb8389888f41888715636298b344aa" target="view_window" class="articleText">
+                    MLTD 3D模組MMD教學
+                </a><br>
+                <a class="articleText">
+                    然後教授交代的東西還是沒做出來，專題繼續海放，我真的需要分子來傳授我MLTD密鑰拆取QQ
+                </a>
+            <div align="center">
+                <br><br><br>
+                2021/8/10
+            </div>
+        </div>
+        <script src="../js.js"></script>    
+    </div>    
+</body>
+</html>
