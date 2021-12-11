@@ -1,0 +1,116 @@
+h2 {
+    color: lightblue;
+}
+.timeColor {
+    color: hotpink;
+}
+.dateColor {
+    color: darkorchid;
+}
+.inputColor {
+    color: firebrick;
+}
+.outputColor {
+    color: slateblue;
+}
+
+.bg-sky-blue{background-color: rgb(12, 155, 199);}
+.register{font-size: 30px;}
+.boldText{font-weight:bold;}
+.register2{font-size: 40px;font-weight:bold;}
+
+.body{
+    background-image: url("img/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+.bodyMask {
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+.timerSize{
+    font-size: 25px;
+    font-weight: bold;
+    color: coral;
+}
+.code{
+    font-size:  20px;
+    font-weight: bold;
+    font-style: italic;
+}
+.articleText{
+    font-size:  20px;
+    font-weight: bold;
+}
+.articleTitle{
+    font-size:  45px;
+    font-weight: bold;
+    font-style: italic;
+}
+.x{
+    margin: auto;
+    border: 5px dashed cornflowerblue;
+}
+.title{
+    color : black;
+    font-size:  30px;
+    font-weight: bold;
+}
+.title2{
+    color : black;
+    font-size:  20px;
+    font-weight: bold;
+}
+.textR{
+    text-align:right;
+    font-size:  30px;
+    font-weight: bold;
+    font-family:'851MkPOP';
+}
+.button-align{
+    text-align: center;
+}
+.articleMain{
+    border: 5px dashed cornflowerblue;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.subTitle{
+    color: blue;
+    font-weight: bold;
+    font-style: italic;
+    font-size:40px;
+}
+.resize {
+    width : auto;
+    width : 25px;
+    height : auto;
+    height : 25px;
+    }
+
+.noteText{
+    font-size:  20px;
+    font-weight: bold;
+}
+.noteTitle{
+    color : blue;
+    font-size:  30px;
+    font-weight: bold;
+    font-family:'851MkPOP';
+}
+.imageD{
+    width:30vw;
+    height:30vh;
+}
+.imageF{
+    font-size:10vw;
+    font-size:10vh;
+}
+@font-face {
+    font-family:'851MkPOP';
+    src:url('font/851MkPOP_002.ttf');
+}
+@font-face {
+    font-family:'jf-openhuninn';
+    src:url('font/jf-openhuninn-1.1.ttf');
+}

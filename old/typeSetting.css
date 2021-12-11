@@ -40,8 +40,6 @@
     color: coral;
 }
 .main{
-    width: 1300px;
-    height: 800px;
     border: 5px dashed green;
     display: flex;
     flex-direction: column;
