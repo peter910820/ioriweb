@@ -4,10 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
-
-import os
-import re
-import psycopg2
+import os, re, psycopg2
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -36,4 +33,4 @@ async def root(request: Request):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    uvicorn.run("Main:app", host="0.0.0.0", port=port, reload=True)
+    uvicorn.run("app:app", host="127.0.0.1", port=port, reload=True)
