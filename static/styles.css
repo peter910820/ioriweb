@@ -23,10 +23,17 @@ h2 {
     background-image: url("img/background.png");
     background-size: cover;
     background-attachment: fixed;
+    font-family:'ch';
+    font-weight:bold;
+    
+}
+.p1{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 .bodyMask {
-    margin: 10px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0px;
 }
 .timerSize{
     font-size: 25px;
@@ -47,9 +54,13 @@ h2 {
     font-weight: bold;
     font-style: italic;
 }
-.x{
-    margin: auto;
-    border: 5px dashed cornflowerblue;
+.img{
+    padding-top: 10px;
+    border-radius: 30px;
+    width:100%
+}
+.mainText{
+    color: coral;
 }
 .title{
     color : black;
@@ -61,10 +72,7 @@ h2 {
     font-size:  20px;
     font-weight: bold;
 }
-.textR{
-    text-align:right;
-    font-size:  30px;
-    font-weight: bold;
+.textJP{
     font-family:'851MkPOP';
 }
 .button-align{
@@ -113,4 +121,9 @@ h2 {
 @font-face {
     font-family:'jf-openhuninn';
     src:url('font/jf-openhuninn-1.1.ttf');
+}
+
+@font-face {
+    font-family:'ch';
+    src:url('font/GenJyuuGothic-Medium.ttf');
 }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+        <link rel="icon" href="{{ url_for('static', path='img/icon.ico') }}">
+        <title>v</title>
+    </head>
+    <body class="body">
+        <nav  class="navbar navbar-light" style="background-color: #e9a653;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">海獺的Galgame記錄站</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">海獺的Galgame記錄站</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                          <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </nav>
+        <div class="row container-fluid">
+          <div class="col-2 text-center" id="leftSection"></div>
+          <div class="col-8 bodyMask">
+
+              <div>
+                  <img src="https://key.visualarts.gr.jp/kinetic/loopers/common/image/lp_gallery_img_2.jpg" class="img">
+              </div>
+              <hr>
+              <div>
+                  <h1 class="display-4 bol mainText">海獺的Galgame記錄站</h1>
+                  <p class="lead textJP">アストラエアの白き永遠</p>
+                  <hr class="my-4">
+              </div>
+
+              <div class="col">
+                  <a href="./article/2207161.html">
+                      <h3>アストラエアの白き永遠</h3>
+                  </a>
+                  <span class="ital">對，就如標題所說，這到底是甚麼營運模式，小萌的手法早就在巴哈傳得沸沸揚揚的了，不過遊玩人數好像沒下降就是了，跟遊戲橘子一樣。...</span><br>
+                  <span class="date">by.SeaotterMS on 2022/7/16</span>
+                  <span class="date float-right">2207161</span>
+              </div>
+              <hr>
+              <div class="col">
+                  <a href="./article/2207161.html">
+                      <h3>アストラエアの白き永遠</h3>
+                  </a>
+                  <span class="ital">對，就如標題所說，這到底是甚麼營運模式，小萌的手法早就在巴哈傳得沸沸揚揚的了，不過遊玩人數好像沒下降就是了，跟遊戲橘子一樣。...</span><br>
+                  <span class="date">by.SeaotterMS on 2022/7/16</span>
+                  <span class="date float-right">2207161</span>
+              </div>
+              <hr>
+              <div class="col">
+                  <a href="./article/2207161.html">
+                      <h3>アストラエアの白き永遠</h3>
+                  </a>
+                  <span class="ital">對，就如標題所說，這到底是甚麼營運模式，小萌的手法早就在巴哈傳得沸沸揚揚的了，不過遊玩人數好像沒下降就是了，跟遊戲橘子一樣。...</span><br>
+                  <span class="date">by.SeaotterMS on 2022/7/16</span>
+                  <span class="date float-right">2207161</span>
+              </div>
+              <hr>
+          <div class="col-2"></div>
+      </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="../static/js.js"></script>
+        {% block script %}{% endblock %}
+    </body>
+</html>
