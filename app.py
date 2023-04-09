@@ -20,6 +20,10 @@ async def root(request: Request):
 
     return templates.TemplateResponse('home.html',{'request':request,'data' : data})
 
+@app.get("/resource", response_class=HTMLResponse)
+async def root(request: Request):
+    return templates.TemplateResponse('resource.html',{'request':request})
+
 @app.get("/note", response_class=HTMLResponse)
 async def root(request: Request):
     return templates.TemplateResponse('note.html',{'request':request})

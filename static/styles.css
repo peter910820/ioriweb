@@ -1,6 +1,28 @@
 h2 {
     color: lightblue;
 }
+.url{
+    color: hotpink;
+    font-size: 20px;
+}
+.url:hover{
+    color: cornflowerblue;
+    font-size: 25px;
+}
+
+.navMain{
+    font-size: 20px;
+    color: slateblue;
+}
+
+.navMain:hover{
+    font-size: 20px;
+    color: slateblue;
+}
+
+.navTitle:hover{
+    font-size: 20px;
+}
 
 .timeColor {
     color: hotpink;
