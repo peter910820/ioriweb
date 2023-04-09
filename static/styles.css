@@ -1,6 +1,7 @@
 h2 {
     color: lightblue;
 }
+
 .timeColor {
     color: hotpink;
 }
@@ -13,23 +14,30 @@ h2 {
 .outputColor {
     color: slateblue;
 }
+.asv{
+    border-width:2px;
+    color: slateblue;
+}
 
-.bg-sky-blue{background-color: rgb(12, 155, 199);}
-.register{font-size: 30px;}
+.galgameTitle{
+    font-size: 20px;
+}
+
+.galgameTitle:hover{
+    color: slateblue;
+}
+
 .boldText{font-weight:bold;}
-.register2{font-size: 40px;font-weight:bold;}
-
+h3:hover{
+    color: rgb(17, 6, 237);
+}
 .body{
-    background-image: url("img/background.png");
+    background-image: url("http://www.favo-soft.jp/soft/product/sakura/img/cg02.jpg");
     background-size: cover;
     background-attachment: fixed;
     font-family:'ch';
     font-weight:bold;
     
-}
-.p1{
-    margin-bottom: 0px;
-    padding-bottom: 0px;
 }
 .bodyMask {
     background: rgba(255, 255, 255, 0.7);
@@ -42,15 +50,6 @@ h2 {
 }
 .code{
     font-size:  20px;
-    font-weight: bold;
-    font-style: italic;
-}
-.articleText{
-    font-size:  20px;
-    font-weight: bold;
-}
-.articleTitle{
-    font-size:  45px;
     font-weight: bold;
     font-style: italic;
 }
@@ -67,11 +66,6 @@ h2 {
     font-size:  30px;
     font-weight: bold;
 }
-.title2{
-    color : black;
-    font-size:  20px;
-    font-weight: bold;
-}
 .textJP{
     font-family:'851MkPOP';
 }
@@ -83,18 +77,6 @@ h2 {
     margin-left: 100px;
     margin-right: 100px;
 }
-.subTitle{
-    color: blue;
-    font-weight: bold;
-    font-style: italic;
-    font-size:40px;
-}
-.resize {
-    width : auto;
-    width : 25px;
-    height : auto;
-    height : 25px;
-    }
 
 .noteText{
     font-size:  20px;

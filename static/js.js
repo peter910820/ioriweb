@@ -1,3 +1,14 @@
+let NowDate=new Date();
+let d = NowDate.getDate();
+var m = NowDate.getMonth();
+var y = NowDate.getFullYear();
+
+m = m + 1
+let el2 = document.querySelector('.c');
+el2.setAttribute('value', `${y}/${m}/${d}`);
+
+
+
 window.onload =  ShowTime();
 
 window.onload = function(){ 

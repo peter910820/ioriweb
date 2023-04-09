@@ -4,7 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
-import os, re, psycopg2
+import os, re, psycopg2,sqlite3,datetime
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -12,24 +12,36 @@ templates = Jinja2Templates(directory="templates")
 
 # 網頁端 #
 @app.get("/", response_class=HTMLResponse)
+
 async def root(request: Request):
-    return templates.TemplateResponse('index.html',{'request':request})
+    db = sqlite3.connect('./database/ioriweb.db')
+    cursor = db.cursor()
+    data = cursor.execute('''SELECT * FROM galgameTitle;''')
+
+    return templates.TemplateResponse('home.html',{'request':request,'data' : data})
 
 @app.get("/note", response_class=HTMLResponse)
 async def root(request: Request):
     return templates.TemplateResponse('note.html',{'request':request})
 
-@app.get("/article", response_class=HTMLResponse)
+@app.get("/newArticle", response_class=HTMLResponse)
 async def root(request: Request):
-    return templates.TemplateResponse('/article.html',{'request':request})
+    return templates.TemplateResponse('/newArticle.html',{'request':request})
 
-@app.get("/article/0810_PJSK", response_class=HTMLResponse)
-async def root(request: Request):
-    return templates.TemplateResponse('/article/0810_PJSK.html',{'request':request})
-
-@app.get("/article/0817_TenkafuMA", response_class=HTMLResponse)
-async def root(request: Request):
-    return templates.TemplateResponse('/article/0817_TenkafuMA.html',{'request':request})
+@app.post("/submmit", response_class=HTMLResponse)
+async def root(request: Request, information : list = Form(...)):
+    if information[-1] == '0000':
+        db = sqlite3.connect('./database/ioriweb.db')
+        cursor = db.cursor()
+        insertQuery = """INSERT INTO galgameTitle VALUES (?, ?, ?);"""
+        currentDateTime = datetime.datetime.now()
+        cursor.execute(insertQuery, (information[0], f'{information[4]},{information[5]}', currentDateTime))
+        print('Data created.')
+        db.commit()
+    else:
+        print('password error')
+    print(information)
+    return templates.TemplateResponse('/submmit.html',{'request':request})
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

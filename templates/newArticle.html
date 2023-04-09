@@ -1,0 +1,51 @@
+{% extends "main.html" %}
+
+{% block title %}新增文章{% endblock %}
+{% block page %}追加記事{% endblock %}
+{% block main %}
+    <form class="row g-3" action="/submmit" method="post">
+        <div class="col-md-12">
+            <label for="validationDefault01" class="form-label">作品名稱</label>
+            <input type="text" name='information' class="form-control" id="validationDefault01" value="" required>
+        </div>
+        <div class="col-md-6">
+            <label for="validationDefault01" class="form-label">開始遊玩時間</label>
+            <input type="text" name='information' class="form-control c" id="validationDefault01" value="" required>
+        </div>
+        <div class="col-md-6">
+            <label for="validationDefault02" class="form-label">結束遊玩時間</label>
+            <input type="text" name='information' class="form-control" id="validationDefault02" value="2099/13/32" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">作者</label>
+            <input type="text" name='information' class="form-control c" id="validationDefault01" value="" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">作品公司</label>
+            <input type="text" name='information' class="form-control c" id="validationDefault02" value="" required>
+        </div>
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">標籤</label>
+            <select id="inputState" name='information' class="form-select">
+                <option selected>選擇標籤...</option>
+                <option>泣系類型</option>
+            </select>
+        </div>
+        <label for="basic-url" class="form-label">OP網址</label>
+        <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3">https://www.youtube.com/</span>
+        <input type="text" name='information' class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <div class="col-12">
+            <label for="exampleFormControlTextarea1" class="form-label">內文/心得-(採用HTML格式)</label>
+            <textarea name='information' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="col-auto">
+            <label for="inputPassword2" class="form-label">請輸入密碼</label>
+            <input type="password" name='information' class="form-control" id="inputPassword2" placeholder="Password">
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">送出</button>
+        </div>
+    </form>
+{% endblock %}
