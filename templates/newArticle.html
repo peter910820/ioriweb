@@ -5,51 +5,25 @@
 {% block main %}
     <form class="row g-3 was-validated" action="/submmit" method="post">
         <div class="col-md-12">
-            <label for="workName" class="form-label">作品名稱</label>
+            <label for="workName" class="form-label">標題</label>
             <input type="text" name='information' class="form-control" id="workName" value="" required>
             <div id="workNameFeedback" class="invalid-feedback">
-                請填寫作品名稱
+                請填寫標題
             </div>
         </div>
         <div class="col-md-6">
-            <label for="startplayTime" class="form-label">開始遊玩時間</label>
-            <input type="text" name='information' class="form-control c" id="startplayTime" value="" required>
-            <div id="startplayTimeFeedback" class="invalid-feedback">
-                請填寫開始遊玩時間
-            </div>
-        </div>
-        <div class="col-md-6">
-            <label for="endplayTime" class="form-label">結束遊玩時間</label>
-            <input type="text" name='information' class="form-control" id="endplayTime" value="2099/13/32" required>
-            <div id="endplayTimeFeedback" class="invalid-feedback">
-                請填寫結束遊玩時間
-            </div>
-        </div>
-        <div class="col-md-4">
             <label for="author" class="form-label">作者</label>
-            <input type="text" name='information' class="form-control c" id="author" value="" required>
+            <input type="text" name='information' class="form-control" id="author" value="" required>
             <div id="authorFeedback" class="invalid-feedback">
                 請填寫作者
             </div>
         </div>
-        <div class="col-md-4">
-            <label for="workCompany" class="form-label">作品公司</label>
-            <input type="text" name='information' class="form-control c" id="workCompany" value="" required>
-            <div id="workCompanyFeedback" class="invalid-feedback">
-                請填寫作品公司
-            </div>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="tag" class="form-label">標籤</label>
             <select id="tag" name='information' class="form-select is-invalid" required>
                 <option selected disabled value="">選擇標籤...</option>
                 <option>泣系類型</option>
             </select>
-        </div>
-        <label for="op-url" class="form-label">OP網址</label>
-        <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon3">https://www.youtube.com/</span>
-        <input type="text" name='information' class="form-control is-invalid" id="op-url" aria-describedby="basic-addon3" required>
         </div>
         <div class="col-12">
             <label for="experience" class="form-label">內文/心得-(採用HTML格式)</label>
@@ -59,8 +33,13 @@
             <label for="password" class="form-label">請輸入密碼</label>
             <input type="password" name='information' class="form-control is-invalid" id="password" placeholder="Password" required>
         </div>
+        
         <div class="col-12">
             <button class="btn btn-primary" type="submit">送出</button>
         </div>
+    </form>
+    <form>
+        <textarea id="text" cols="40" rows="3"></textarea>
+        <input type="button" value="[tag_label]" />
     </form>
 {% endblock %}

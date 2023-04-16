@@ -6,45 +6,57 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
 import os, re, psycopg2,sqlite3,datetime
 
+from src.data_control import DataControl
+
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 # 網頁端 #
 @app.get("/", response_class=HTMLResponse)
-
 async def root(request: Request):
     db = sqlite3.connect('./database/ioriweb.db')
     cursor = db.cursor()
     data = cursor.execute('''SELECT * FROM galgameTitle;''')
-
-    return templates.TemplateResponse('home.html',{'request':request,'data' : data})
+    return templates.TemplateResponse('home.html',{'request': request,'data' : data})
 
 @app.get("/resource", response_class=HTMLResponse)
-async def root(request: Request):
+async def resource(request: Request):
     return templates.TemplateResponse('resource.html',{'request':request})
 
 @app.get("/note", response_class=HTMLResponse)
-async def root(request: Request):
+async def note(request: Request):
     return templates.TemplateResponse('note.html',{'request':request})
 
+@app.get("/article/{articleTitle}", response_class=HTMLResponse)
+async def root(request: Request, articleTitle):
+    data_control = DataControl()
+    articleData = data_control.searchArticle(articleTitle)
+    return templates.TemplateResponse('/article.html',{'request': request, 'articleData' : articleData[0]})
+
+@app.get("/newGalgameArticle", response_class=HTMLResponse)
+async def newGalgameArticle(request: Request):
+    return templates.TemplateResponse('/newGalgameArticle.html',{'request':request})
+
 @app.get("/newArticle", response_class=HTMLResponse)
-async def root(request: Request):
+async def newArticle(request: Request):
     return templates.TemplateResponse('/newArticle.html',{'request':request})
 
 @app.post("/submmit", response_class=HTMLResponse)
-async def root(request: Request, information : list = Form(...)):
+async def submmit(request: Request, information : list = Form(...)):
     if information[-1] == '0000':
-        db = sqlite3.connect('./database/ioriweb.db')
-        cursor = db.cursor()
-        insertQuery = """INSERT INTO galgameTitle VALUES (?, ?, ?);"""
-        currentDateTime = datetime.datetime.now()
-        cursor.execute(insertQuery, (information[0], f'{information[4]},{information[5]}', currentDateTime))
-        print('Data created.')
-        db.commit()
+        information.pop(-1)
+        data_control = DataControl()
+        article_array = []
+        articleTitle_array = []
+        articleTitle_array.append(information[0])
+        articleTitle_array.append(f'{information[4]},{information[5]}')
+        for i in information:
+            article_array.append(i)
+        article_array[6]  = 'https://www.youtube.com/embed/' + article_array[6][32:]
+        data_control.insert_galgameArticle(article_array, articleTitle_array)
     else:
         print('password error')
-    print(information)
     return templates.TemplateResponse('/submmit.html',{'request':request})
 
 if __name__ == "__main__":

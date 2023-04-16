@@ -1,6 +1,18 @@
 h2 {
     color: lightblue;
 }
+h3:hover{
+    color: rgb(17, 6, 237);
+}
+a{
+    text-decoration:none;
+}
+
+
+.articleInformation{
+    color: gray;
+    font-style: italic;
+}
 .url{
     color: hotpink;
     font-size: 20px;
@@ -43,6 +55,8 @@ h2 {
 
 .galgameTitle{
     font-size: 20px;
+    /* border:none;
+    background: rgba(255, 255, 255, 0); */
 }
 
 .galgameTitle:hover{
@@ -50,9 +64,6 @@ h2 {
 }
 
 .boldText{font-weight:bold;}
-h3:hover{
-    color: rgb(17, 6, 237);
-}
 .body{
     background-image: url("http://www.favo-soft.jp/soft/product/sakura/img/cg02.jpg");
     background-size: cover;
@@ -62,7 +73,7 @@ h3:hover{
     
 }
 .bodyMask {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.85);
     margin-bottom: 0px;
 }
 .timerSize{
@@ -99,6 +110,9 @@ h3:hover{
     margin-left: 100px;
     margin-right: 100px;
 }
+.articleTitle{
+    font-weight: bold;
+}
 
 .noteText{
     font-size:  20px;
@@ -118,6 +132,32 @@ h3:hover{
     font-size:10vw;
     font-size:10vh;
 }
+
+.videobox {
+    position: relative;
+    width: 60%;
+    height: 0;
+    padding-bottom: 36.25%;
+    margin:auto;
+    border:5px rgb(27, 198, 84) solid;
+}
+.as{
+    text-align:center;
+}
+.videobox iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.grey{
+    color: #999595;
+    text-align: center;
+}
+.grey:hover{
+    color: #999595;
+}
 @font-face {
     font-family:'851MkPOP';
     src:url('font/851MkPOP_002.ttf');
@@ -126,7 +166,6 @@ h3:hover{
     font-family:'jf-openhuninn';
     src:url('font/jf-openhuninn-1.1.ttf');
 }
-
 @font-face {
     font-family:'ch';
     src:url('font/GenJyuuGothic-Medium.ttf');

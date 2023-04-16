@@ -1,0 +1,79 @@
+{% extends "main.html" %}
+
+{% block title %}新增文章{% endblock %}
+{% block page %}追加Galgame文章{% endblock %}
+{% block main %}
+    <form class="row g-3 was-validated" action="/submmit" method="post">
+        <div class="col-md-12">
+            <label for="workName" class="form-label">作品名稱</label>
+            <input type="text" name='information' class="form-control" id="workName" value="" required>
+            <div id="workNameFeedback" class="invalid-feedback">
+                請填寫作品名稱
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="startplayTime" class="form-label">開始遊玩時間</label>
+            <input type="text" name='information' class="form-control c" id="startplayTime" value="" required>
+            <div id="startplayTimeFeedback" class="invalid-feedback">
+                請填寫開始遊玩時間
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="endplayTime" class="form-label">結束遊玩時間</label>
+            <input type="text" name='information' class="form-control" id="endplayTime" value="2099/13/32" required>
+            <div id="endplayTimeFeedback" class="invalid-feedback">
+                請填寫結束遊玩時間
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="author" class="form-label">作者</label>
+            <input type="text" name='information' class="form-control" id="author" value="" required>
+            <div id="authorFeedback" class="invalid-feedback">
+                請填寫作者
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="workCompany" class="form-label">作品公司</label>
+            <input type="text" name='information' class="form-control c" id="workCompany" value="" required>
+            <div id="workCompanyFeedback" class="invalid-feedback">
+                請填寫作品公司
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="tag" class="form-label">標籤</label>
+            <select id="tag" name='information' class="form-select is-invalid" required>
+                <option selected disabled value="">選擇標籤...</option>
+                <option>泣系類型</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="opURL" class="form-label">OP網址</label>
+            <input type="text" name='information' class="form-control op" id="opURL" placeholder="https://www.youtube.com/watch?v=......" required>
+            <div id="opURLFeedback" class="invalid-feedback">
+                請填寫OP網址
+            </div>
+        </div>
+        <div class="col-12">
+            <label for="experience" class="form-label">內文/心得-(採用HTML格式，可用下面按鈕反白文字快速插入HTML標籤)</label>
+            <textarea name='information' class="form-control is-invalid" id="experience" rows="3" placeholder="文章不得為空白" required></textarea>
+        </div>
+        <div class="col-9">
+            <button onclick="insertEffect('h1')" type="button">h1</button>
+            <button onclick="insertEffect('h2')" type="button">h2</button>
+            <button onclick="insertEffect('h3')" type="button">h3</button>
+            <button onclick="insertEffect('h4')" type="button">h4</button>
+            <button onclick="insertEffect('strong')" type="button">strong</button>
+            <button onclick="insertEffect('I')" type="button">italic</button>
+            <button onclick="insertEffect('u')" type="button">u</button>
+            <button onclick="insertEffect('del')" type="button">del</button>
+            <input type="color" id="color" name="color" class="form-control-color d-inline-block">
+        </div>
+        <div class="col-12">
+            <label for="password" class="form-label">請輸入密碼</label>
+            <input type="password" name='information' class="form-control is-invalid" id="password" placeholder="Password" required>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">送出</button>
+        </div>
+    </form>
+{% endblock %}

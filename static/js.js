@@ -7,34 +7,8 @@ m = m + 1
 let el2 = document.querySelector('.c');
 el2.setAttribute('value', `${y}/${m}/${d}`);
 
-
-
 window.onload =  ShowTime();
 
-window.onload = function(){ 
-  var audio = document.getElementById('music');
-      audio.pause();
-}
-function play() {
-   var audio = document.getElementById('music');
-   if (audio.paused) {
-       audio.play();
-   }else{
-       audio.pause();
-       audio.currentTime = 0;
-   }
-}
-/*===================================================== */
-function mouseOver()
-{
-var x=document.getElementsByTagName("fix");
-alert(x.length);
-document.getElementById('fix').src ="stop.png"
-}
-function mouseOut()
-{
-document.getElementById('fix').src ="player.png"
-}
 /*===================================================== */
 function ShowTime(){
   var NowDate=new Date();

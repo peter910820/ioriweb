@@ -14,7 +14,7 @@
     {% for i in data %}
     <hr>
     <div class="col">
-      <span class="galgameTitle" type="button">{{ i[0] }}</span>
+      <a href="/article/{{ i[0] }}" class="galgameTitle" type="button">{{ i[0] }}</a>
       <button type="button" class="btn btn-warning">{{ i[1] }}</button>
       <br>
     </div>
@@ -29,5 +29,4 @@
   <div class="collapse" id="collapse2">
     櫻花萌放拉，問就是櫻花萌放。
   </div>
-  <hr>
 {% endblock %}

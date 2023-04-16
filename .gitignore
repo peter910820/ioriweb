@@ -1,2 +1,4 @@
 /__pycache__
 /database
+/src/__pycache__
+/record.js
