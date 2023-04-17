@@ -1,10 +1,29 @@
 # ioriweb
-海獺的個人網站:https://peter910820.github.io/ioriweb/ 存放平日心情文，技術文，跟進度文。 偶爾上傳拆包文章，分享技術，歡迎訂閱我的YT以追蹤我的Twitter
 
-12/11整個移到Heroku，使用FastAPI，還沒做RWD
+## 海獺的個人網站(galgame紀錄): **https://ioriweb.onrender.com/**
 
-2022/08/24 永久停止更新
+目前主要想放Galgame心得，之後可能會繼續放日常的東西，歡迎訂閱我的YouTube以及追蹤我的Twitter。
 
-2023/04/03 可能會來修一下(X)
+**Twitter: https://twitter.com/seaotterMS**
 
-2023/4/17 上架到koyeb正式使用中
+**YouTube: https://www.youtube.com/@Seaotter_MS/videos**
+
+------------------------------------------------
+
+2021/12/11: 整個移到Heroku，使用FastAPI，還沒做RWD
+
+2022/08/24: 永久停止更新
+
+2023/04/03: 可能會來修一下(X)
+
+### (前面不完全的歷史)
+
+------------------------------------------------
+
+2023/4/17:
+* 上架到koyeb正式使用中
+
+2023/4/18:
+* 修正js.js的網頁錯誤碼。
+* 將js.js更名成inner.js。
+* 修正按下enter會觸發br標籤的bug，改成按鍵輸入。
