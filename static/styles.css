@@ -65,7 +65,7 @@ a{
 
 .boldText{font-weight:bold;}
 .body{
-    background-image: url("http://www.favo-soft.jp/soft/product/sakura/img/cg02.jpg");
+    background-image: url("./img/bg.jpg");
     background-size: cover;
     background-attachment: fixed;
     font-family:'ch';
