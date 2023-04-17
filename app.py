@@ -4,7 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
-import os, re, psycopg2,sqlite3,datetime
+import os, psycopg2
 
 from src.data_control import DataControl
 
@@ -15,9 +15,10 @@ templates = Jinja2Templates(directory="templates")
 # 網頁端 #
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    db = sqlite3.connect('./database/ioriweb.db')
+    db = psycopg2.connect('postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb')
     cursor = db.cursor()
-    data = cursor.execute('''SELECT * FROM galgameTitle;''')
+    cursor.execute('''SELECT * FROM galgameTitle;''')
+    data = cursor.fetchall()
     return templates.TemplateResponse('home.html',{'request': request,'data' : data})
 
 @app.get("/resource", response_class=HTMLResponse)
