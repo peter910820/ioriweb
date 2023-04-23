@@ -3,3 +3,9 @@ uvicorn
 jinja2
 python-multipart
 psycopg2
+anyio
+click
+httptools
+sniffio
+uvloop
+websockets
