@@ -1,8 +1,5 @@
-h2 {
-    color: lightblue;
-}
 h3:hover{
-    color: rgb(39, 191, 59);
+    color: wheat;
 }
 a{
     text-decoration:none;
@@ -30,12 +27,12 @@ a{
 
 .navMain{
     font-size: 20px;
-    color: slateblue;
+    color: snow;
 }
 
 .navMain:hover{
     font-size: 20px;
-    color: slateblue;
+    color: snow;
 }
 
 .navTitle:hover{
@@ -48,16 +45,6 @@ a{
 .dateColor {
     color: darkorchid;
 }
-.inputColor {
-    color: firebrick;
-}
-.outputColor {
-    color: slateblue;
-}
-.asv{
-    border-width:2px;
-    color: slateblue;
-}
 
 .galgameTitle{
     font-size: 20px;
@@ -66,7 +53,7 @@ a{
 }
 
 .galgameTitle:hover{
-    color: slateblue;
+    color: violet;
 }
 
 .boldText{font-weight:bold;}
@@ -98,7 +85,7 @@ a{
     width:100%
 }
 .mainText{
-    color: coral;
+    color: #f7c17f;
 }
 .title{
     color : black;

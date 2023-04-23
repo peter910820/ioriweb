@@ -28,13 +28,19 @@ async def root(request: Request):
 async def resource(request: Request):
     return templates.TemplateResponse('resource.html',{'request':request})
 
+@app.get("/databaseOperate", response_class=HTMLResponse)
+async def databaseOperate(request: Request):
+    return templates.TemplateResponse('databaseoperate.html',{'request':request})
+
 @app.get("/note", response_class=HTMLResponse)
 async def note(request: Request):
     return templates.TemplateResponse('note.html',{'request':request})
 
 @app.get("/tag/{tagName}", response_class=HTMLResponse)
-async def tagName(request: Request, articleTitle):
-    return templates.TemplateResponse('/tagname.html',{'request': request})
+async def tagName(request: Request, tagName):
+    data_control = DataControl()
+    titleList = data_control.searchTag(tagName)
+    return templates.TemplateResponse('/tagname.html',{'request': request, 'tagName':tagName, 'titleList':titleList})
 
 @app.get("/article/{articleTitle}", response_class=HTMLResponse)
 async def articleTitle(request: Request, articleTitle):
@@ -48,7 +54,11 @@ async def aboutme(request: Request):
 
 @app.get("/newGalgameArticle", response_class=HTMLResponse)
 async def newGalgameArticle(request: Request):
-    return templates.TemplateResponse('/newGalgameArticle.html',{'request':request})
+    db = psycopg2.connect('postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb')
+    cursor = db.cursor()
+    cursor.execute('''SELECT * FROM tag;''')
+    data = cursor.fetchall()
+    return templates.TemplateResponse('/newGalgameArticle.html',{'request':request, 'data':data})
 
 @app.get("/newArticle", response_class=HTMLResponse)
 async def newArticle(request: Request):
@@ -66,11 +76,22 @@ async def submmit(request: Request, information : list = Form(...)):
         for i in information:
             article_array.append(i)
         article_array[6]  = 'https://www.youtube.com/embed/' + article_array[6][32:]
-        data_control.insert_galgameArticle(article_array, articleTitle_array)
+        data_control.galgameArticle_insert(article_array, articleTitle_array)
+    else:
+        print('password error')
+    return templates.TemplateResponse('/submmit.html',{'request':request})
+
+@app.post("/sabi", response_class=HTMLResponse)
+async def sabi(request: Request, tagInformation : list = Form(...)):
+    if tagInformation[-1] == '1111':
+        tagInformation.pop(-1)
+        tagName = tagInformation[0]
+        data_control = DataControl()
+        data_control.tagName_insert(tagName)
     else:
         print('password error')
     return templates.TemplateResponse('/submmit.html',{'request':request})
 
 # if __name__ == "__main__":
 #     port = int(os.environ.get('PORT', 5000))
-#     uvicorn.run("app:app", host="127.0.0.1", port=port, reload=True)
+#     uvicorn.run("main:app", host="127.0.0.1", port=port, reload=True)

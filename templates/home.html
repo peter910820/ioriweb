@@ -2,7 +2,7 @@
 
 {% block title %}首頁{% endblock %}
 
-{% block page %}首頁{% endblock %}
+{% block page %}Main page{% endblock %}
 
 {% block main %}
   <div>
@@ -19,7 +19,9 @@
         {% set tag_name = i[1].split(',') %}
         <div class="col-3">
           {% for t in tag_name %}
-          <button type="button" class="btn btn-info">{{ t }}</button>
+          <a href="/tag/{{ t }}" class="galgameTitle" type="button">
+            <button type="button" class="btn btn-outline-warning">{{ t }}</button>
+          </a>
           {% endfor %}
         </div>
         <div class="col-3">

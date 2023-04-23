@@ -1,3 +1,24 @@
 {% extends "main.html" %}
-{% block title %} {% endblock %}
-{% block main %} {% endblock %}
+
+{% block title %}首頁{% endblock %}
+
+{% block page %}首頁{% endblock %}
+
+{% block main %}
+  <div>
+    <h3 class="dropdown-toggle"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      標籤-{{ tagName }}
+    </h3>
+    <div class="collapse" id="collapseExample">
+      {% for title in titleList %}
+      <hr>
+      <div class="row">
+        <div class="col-6">
+          <a href="/article/{{ title }}" class="galgameTitle" type="button">{{ title }}</a>
+        </div>
+        <br>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+{% endblock %}

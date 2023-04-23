@@ -6,7 +6,7 @@ class DataControl():
         self.DATABASE_URL = 'postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb'
 
 
-    def insert_galgameArticle(self, article_array, articleTitle_array):
+    def galgameArticle_insert(self, article_array, articleTitle_array):
         currentDateTime = datetime.datetime.now()
         try:
             db = psycopg2.connect(self.DATABASE_URL)
@@ -54,3 +54,32 @@ class DataControl():
         except:
             print('Inconsistent data!')
             return
+        
+    def tagName_insert(self, tagName):
+        try:
+            db = psycopg2.connect(self.DATABASE_URL)
+        except:
+            print('Database connect error!')
+            return
+        cursor = db.cursor()
+        insertQuery = """INSERT INTO tag VALUES (%s, %s);"""
+        cursor.execute(insertQuery, 
+                (tagName, datetime.datetime.now()))
+        db.commit()
+
+    def searchTag(self, tagName):
+        try:
+            db = psycopg2.connect(self.DATABASE_URL)
+        except:
+            print('Database connect error!')
+            return
+        titleList = []
+        cursor = db.cursor()
+        cursor.execute("""SELECT * FROM galgameTitle;""")
+        data = cursor.fetchall()
+        for d in data:
+            tmp = d[1].split(',')
+            for t in tmp:
+                if tagName == t:
+                    titleList.append(d[0])
+        return titleList

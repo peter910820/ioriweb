@@ -13,13 +13,13 @@
     <body class="body">
         <nav  class="navbar navbar-light" style="background-color: #f7c17f;">
             <div class="container-fluid">
-              <a class="navMain" href="/">海獺的Galgame記錄站</a>
+              <a class="navMain boldText" href="/">海獺的Galgame記錄站</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #f7c17f;">
                 <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">海獺的Galgame記錄站</h5>
+                  <h5 class="offcanvas-title navMain boldText" id="offcanvasNavbarLabel">海獺的Galgame記錄站</h5>
                   <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -39,6 +39,9 @@
                     <li class="nav-item">
                       <a class="nav-link active navTitle" href="/newArticle">新增文章</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link active navTitle" href="/databaseOperate">資料庫操作</a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -53,7 +56,7 @@
                 <hr>
                 <div>
                     <h1 class="display-4 bol mainText">海獺的Galgame記錄站</h1>
-                    <p class="lead textJP">{% block page %}{% endblock %}</p>
+                    <h2 class="textJP">{% block page %}{% endblock %}</h2>
                     <hr class="my-4">
                 </div>
                 {% block main %}{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+
+{% block title %}DBBBBBB!!!!!!!{% endblock %}
+{% block page %}Add new tag{% endblock %}
+{% block main %}
+    <form class="row g-3 was-validated" action="/sabi" method="post">
+        <div class="col-md-12">
+            <label for="tagName" class="form-label">標籤名稱</label>
+            <input type="text" name='tagInformation' class="form-control" id="tagName" value="" required>
+            <div id="tagNameFeedback" class="invalid-feedback">
+                請填寫標籤名稱
+            </div>
+        </div>
+        <div class="col-auto">
+            <label for="password" class="form-label">請輸入密碼</label>
+            <input type="password" name='tagInformation' class="form-control is-invalid" id="password" placeholder="Password" required>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">送出</button>
+        </div>
+    </form>
+{% endblock %}

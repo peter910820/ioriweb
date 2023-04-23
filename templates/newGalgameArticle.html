@@ -1,7 +1,7 @@
 {% extends "main.html" %}
 
 {% block title %}新增文章{% endblock %}
-{% block page %}追加Galgame文章{% endblock %}
+{% block page %}Add new galgame article{% endblock %}
 {% block main %}
     <form class="row g-3 was-validated" action="/submmit" method="post">
         <div class="col-md-12">
@@ -43,7 +43,9 @@
             <label for="tag" class="form-label">標籤</label>
             <select id="tag" name='information' class="form-select is-invalid" required>
                 <option selected disabled value="">選擇標籤...</option>
-                <option>泣系類型</option>
+                {% for d in data %}
+                <option>{{ d[0] }}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="col-12">
