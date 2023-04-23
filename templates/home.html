@@ -7,26 +7,36 @@
 {% block main %}
   <div>
     <h3 class="dropdown-toggle"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      攻略完Galgame(點我展開)
+      Galgame攻略玩畢心得
     </h3>
-  </div>
-  <div class="collapse" id="collapseExample">
-    {% for i in data %}
-    <hr>
-    <div class="col">
-      <a href="/article/{{ i[0] }}" class="galgameTitle" type="button">{{ i[0] }}</a>
-      <button type="button" class="btn btn-warning">{{ i[1] }}</button>
-      <br>
-    </div>
+    <div class="collapse" id="collapseExample">
+      {% for i in data %}
+      <hr>
+      <div class="row">
+        <div class="col-6">
+          <a href="/article/{{ i[0] }}" class="galgameTitle" type="button">{{ i[0] }}</a>
+        </div>
+        {% set tag_name = i[1].split(',') %}
+        <div class="col-3">
+          {% for t in tag_name %}
+          <button type="button" class="btn btn-info">{{ t }}</button>
+          {% endfor %}
+        </div>
+        <div class="col-3">
+          <span class="mainArticleTime">{{ i[2] }}</span>
+        </div>
+        <br>
+      </div>
     {% endfor %}
+    </div>
   </div>
   <hr>
   <div>
     <h3 class="dropdown-toggle"  type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-      預計要玩Galgame(點我展開)
+      預計要完Galgame(點我展開)
     </h3>
-  </div>
-  <div class="collapse" id="collapse2">
-    櫻花萌放拉，問就是櫻花萌放。
+    <div class="collapse" id="collapse2">
+      櫻花萌放拉，問就是櫻花萌放。
+    </div>
   </div>
 {% endblock %}

@@ -12,7 +12,10 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-# 網頁端 #
+# @app.get("/home/{home}")
+# async def index(home):
+#     return {"message": home}
+
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
     db = psycopg2.connect('postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb')
@@ -29,11 +32,19 @@ async def resource(request: Request):
 async def note(request: Request):
     return templates.TemplateResponse('note.html',{'request':request})
 
+@app.get("/tag/{tagName}", response_class=HTMLResponse)
+async def tagName(request: Request, articleTitle):
+    return templates.TemplateResponse('/tagname.html',{'request': request})
+
 @app.get("/article/{articleTitle}", response_class=HTMLResponse)
-async def root(request: Request, articleTitle):
+async def articleTitle(request: Request, articleTitle):
     data_control = DataControl()
     articleData = data_control.searchArticle(articleTitle)
     return templates.TemplateResponse('/article.html',{'request': request, 'articleData' : articleData[0]})
+
+@app.get("/aboutme", response_class=HTMLResponse)
+async def aboutme(request: Request):
+    return templates.TemplateResponse('/aboutme.html',{'request':request})
 
 @app.get("/newGalgameArticle", response_class=HTMLResponse)
 async def newGalgameArticle(request: Request):

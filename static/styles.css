@@ -2,16 +2,22 @@ h2 {
     color: lightblue;
 }
 h3:hover{
-    color: rgb(17, 6, 237);
+    color: rgb(39, 191, 59);
 }
 a{
     text-decoration:none;
 }
 
-
+.mainArticleTime{
+    color: gray;
+}
+.main-author{
+    text-align: right;
+}
 .articleInformation{
     color: gray;
     font-style: italic;
+    font-size: 20px;
 }
 .url{
     color: hotpink;
