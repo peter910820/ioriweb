@@ -11,9 +11,9 @@
         <title>海獺的Galgame記錄站:{% block title %}{% endblock %}</title>
     </head>
     <body class="body">
-        <nav  class="navbar navbar-light" style="background-color: #f7c17f;">
+        <nav class="navbar navbar-light" style="background-color: #f7c17f;">
             <div class="container-fluid">
-              <a class="navMain boldText" href="/">海獺的Galgame記錄站</a>
+              <a class="navMain boldText" href="/galgame">海獺的Galgame記錄站</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -25,22 +25,19 @@
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                      <a class="nav-link active navTitle" aria-current="page" href="/">首頁</a>
+                      <a class="nav-link active navTitle" aria-current="page" href="/galgame">首頁</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active navTitle" href="/resource">資源</a>
+                      <a class="nav-link active navTitle" href="/galgame/resource">資源</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active navTitle" href="/aboutme">關於我</a>
+                      <a class="nav-link active navTitle" href="/galgame/aboutme">關於我</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active navTitle" href="/newGalgameArticle">新增Galgame文章</a>
+                      <a class="nav-link active navTitle" href="/galgame/newGalgameArticle">新增Galgame文章</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active navTitle" href="/newArticle">新增文章</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active navTitle" href="/databaseOperate">資料庫操作</a>
+                      <a class="nav-link active navTitle" href="/galgame/databaseOperate">資料庫操作</a>
                     </li>
                   </ul>
                 </div>
@@ -49,28 +46,28 @@
         </nav>
         <div class="row container-fluid">
           <div class="col-2 text-center" id="leftSection"></div>
-            <div class="col-8 bodyMask">
-                <div>
-                    <img src="../static/img/cover.jpg" class="img">
-                </div>
-                <hr>
-                <div>
-                    <h1 class="display-4 bol mainText">海獺的Galgame記錄站</h1>
-                    <h2 class="textJP">{% block page %}{% endblock %}</h2>
-                    <hr class="my-4">
-                </div>
-                {% block main %}{% endblock %}
-                <hr>
-                <br><br><br><br><br>
-                <div class="grey">
+          <div class="col-8 bodyMask">
+              <div>
+                  <img src="../../static/img/cover.jpg" class="img">
+              </div>
+              <hr>
+              <div>
+                  <h1 class="display-4 bol mainText">海獺的Galgame記錄站</h1>
+                  <h2 class="textJP">{% block page %}{% endblock %}</h2>
+                  <hr class="my-4">
+              </div>
+              {% block main %}{% endblock %}
+              <hr>
+              <br><br><br><br><br>
+              <div class="grey">
                 <a>技術整合:SeaotterMS</a>
-                </div>
-                <br>
-            <div class="col-2"></div>
-          </div>
+              </div>
+            </div>
+            <br>
+          <div class="col-2"></div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="../static/articleTool.js"></script>
+        <script src="../../static/articleTool.js"></script>
         {% block script %}{% endblock %}
     </body>
 </html>

@@ -7,19 +7,19 @@
 {% block main %}
   <div>
     <h3 class="dropdown-toggle"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Galgame攻略玩畢心得
+      Galgame攻略完畢心得
     </h3>
     <div class="collapse" id="collapseExample">
       {% for i in data %}
       <hr>
       <div class="row">
         <div class="col-6">
-          <a href="/article/{{ i[0] }}" class="galgameTitle" type="button">{{ i[0] }}</a>
+          <a href="/galgame/article/{{ i[0] }}" class="galgameTitle" type="button">{{ i[0] }}</a>
         </div>
         {% set tag_name = i[1].split(',') %}
         <div class="col-3">
           {% for t in tag_name %}
-          <a href="/tag/{{ t }}" class="galgameTitle" type="button">
+          <a href="/galgame/tag/{{ t }}" class="galgameTitle" type="button">
             <button type="button" class="btn btn-outline-warning">{{ t }}</button>
           </a>
           {% endfor %}

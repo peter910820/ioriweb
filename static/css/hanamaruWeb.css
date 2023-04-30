@@ -1,0 +1,165 @@
+h3:hover{
+    color: wheat;
+}
+a{
+    text-decoration:none;
+}
+
+.mainArticleTime{
+    color: gray;
+}
+.main-author{
+    text-align: right;
+}
+.articleInformation{
+    color: gray;
+    font-style: italic;
+    font-size: 20px;
+}
+.url{
+    color: hotpink;
+    font-size: 20px;
+}
+.url:hover{
+    color: cornflowerblue;
+    font-size: 25px;
+}
+
+.navMain{
+    font-size: 20px;
+    color: snow;
+}
+
+.navMain:hover{
+    font-size: 20px;
+    color: snow;
+}
+
+.navTitle:hover{
+    font-size: 20px;
+}
+
+.timeColor {
+    color: hotpink;
+}
+.dateColor {
+    color: darkorchid;
+}
+
+.galgameTitle{
+    font-size: 20px;
+    /* border:none;
+    background: rgba(255, 255, 255, 0); */
+}
+
+.galgameTitle:hover{
+    color: violet;
+}
+
+.boldText{font-weight:bold;}
+.body{
+    background-image: url("./img/bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family:'ch';
+    font-weight:bold;
+    
+}
+.bodyMask {
+    background: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0px;
+}
+.timerSize{
+    font-size: 25px;
+    font-weight: bold;
+    color: coral;
+}
+.code{
+    font-size:  20px;
+    font-weight: bold;
+    font-style: italic;
+}
+.img{
+    padding-top: 10px;
+    border-radius: 30px;
+    width:100%
+}
+.mainText{
+    color: #f7c17f;
+}
+.title{
+    color : black;
+    font-size:  30px;
+    font-weight: bold;
+}
+.textJP{
+    font-family:'851MkPOP';
+}
+.button-align{
+    text-align: center;
+}
+.articleMain{
+    border: 5px dashed cornflowerblue;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.articleTitle{
+    font-weight: bold;
+}
+
+.noteText{
+    font-size:  20px;
+    font-weight: bold;
+}
+.noteTitle{
+    color : blue;
+    font-size:  30px;
+    font-weight: bold;
+    font-family:'851MkPOP';
+}
+.imageD{
+    width:30vw;
+    height:30vh;
+}
+.imageF{
+    font-size:10vw;
+    font-size:10vh;
+}
+
+.videobox {
+    position: relative;
+    width: 60%;
+    height: 0;
+    padding-bottom: 36.25%;
+    margin:auto;
+    border:5px rgb(27, 198, 84) solid;
+}
+.as{
+    text-align:center;
+}
+.videobox iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.grey{
+    color: #999595;
+    text-align: center;
+}
+.grey:hover{
+    color: #999595;
+}
+@font-face {
+    font-family:'851MkPOP';
+    src:url('font/851MkPOP_002.ttf');
+}
+@font-face {
+    font-family:'jf-openhuninn';
+    src:url('font/jf-openhuninn-1.1.ttf');
+}
+@font-face {
+    font-family:'ch';
+    src:url('font/GenJyuuGothic-Medium.ttf');
+}
