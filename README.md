@@ -27,3 +27,7 @@
 * 修正js.js的網頁錯誤碼。
 * 將js.js更名成inner.js。
 * 修正按下enter會觸發br標籤的bug，改成按鍵輸入。
+
+2023/5/1:
+* 重新規劃路由
+* 增加hanamaruWeb
