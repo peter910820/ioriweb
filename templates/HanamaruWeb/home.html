@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}首頁{% endblock %}
+
+{% block page %}Home{% endblock %}
+
+{% block main %}
+
+<div>
+  <div class="col-2">
+    <span id="element"></span>
+    <script>
+      var typed = new Typed('#element', {
+        strings: ['<i>First</i> sentence.', '&amp; a second sentence.'],
+        typeSpeed: 50,
+      });
+    </script>
+  </div>
+</div>
+
+{% endblock %}
+{% block script %}<script src="../../static/js/hanamaruWeb.js"></script>{% endblock %}

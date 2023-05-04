@@ -26,7 +26,7 @@ async def root(request: Request):
 
 @app.get("/hanamaru", response_class=HTMLResponse)
 async def galgameRoot(request: Request):
-    return hanamaru.TemplateResponse('main.html',{'request': request})
+    return hanamaru.TemplateResponse('home.html',{'request': request})
 
 #------------------------------------------------------------------------------#
 

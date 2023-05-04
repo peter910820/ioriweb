@@ -5,6 +5,22 @@ a{
     text-decoration:none;
 }
 
+.mainText{
+    color: #b54bfc;
+    font-size: 50px;
+}
+
+.typer{
+    color: #b54bfc;
+    font-size: 30px;
+}
+
+.ty .typed-cursor {
+    color: #b54bfc;
+    font-size: 30px;
+}
+
+
 .mainArticleTime{
     color: gray;
 }
@@ -52,21 +68,22 @@ a{
     background: rgba(255, 255, 255, 0); */
 }
 
-.galgameTitle:hover{
-    color: violet;
+.tag{
+    color:rgba(255, 255, 255, 0.8);
 }
-
 .boldText{font-weight:bold;}
 .body{
-    background-image: url("./img/bg.jpg");
+    background-image: url("https://pbs.twimg.com/media/FvBIwfmakAAxb9k?format=jpg&name=large");
     background-size: cover;
     background-attachment: fixed;
     font-family:'ch';
     font-weight:bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
     
 }
 .bodyMask {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.8);
     margin-bottom: 0px;
 }
 .timerSize{
@@ -79,13 +96,14 @@ a{
     font-weight: bold;
     font-style: italic;
 }
-.img{
+.cover{
     padding-top: 10px;
-    border-radius: 30px;
-    width:100%
+    border-radius: 20px;
+    width: 100%
 }
-.mainText{
-    color: #f7c17f;
+.stand{
+    background-image: url("https://tonikawa.com/assets/images/common/special/oyomesan-gallery/img_oyomesan-gallery_03.jpg");
+    background-size: cover;
 }
 .title{
     color : black;
@@ -153,13 +171,13 @@ a{
 }
 @font-face {
     font-family:'851MkPOP';
-    src:url('font/851MkPOP_002.ttf');
+    src:url('../font/851MkPOP_002.ttf');
 }
 @font-face {
     font-family:'jf-openhuninn';
-    src:url('font/jf-openhuninn-1.1.ttf');
+    src:url('../font/jf-openhuninn-1.1.ttf');
 }
 @font-face {
     font-family:'ch';
-    src:url('font/GenJyuuGothic-Medium.ttf');
+    src:url('../font/GenJyuuGothic-Medium.ttf');
 }
