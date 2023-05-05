@@ -11,6 +11,7 @@ from src.data_control import DataControl
 app = FastAPI(docs_url=None, redoc_url=None)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/static/css", StaticFiles(directory="static/css"), name="static/css")
+
 templates = Jinja2Templates(directory="templates")
 galgame = Jinja2Templates(directory="templates/GalgameWeb")
 hanamaru = Jinja2Templates(directory="templates/HanamaruWeb")
@@ -27,6 +28,14 @@ async def root(request: Request):
 @app.get("/hanamaru", response_class=HTMLResponse)
 async def galgameRoot(request: Request):
     return hanamaru.TemplateResponse('home.html',{'request': request})
+
+@app.get("/hanamaru/newarticle", response_class=HTMLResponse)
+async def testter(request: Request):
+    return hanamaru.TemplateResponse('newArticle.html',{'request': request})
+
+@app.get("/hanamaru/testter", response_class=HTMLResponse)
+async def testter(request: Request):
+    return hanamaru.TemplateResponse('testter.html',{'request': request})
 
 #------------------------------------------------------------------------------#
 

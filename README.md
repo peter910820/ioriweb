@@ -28,6 +28,21 @@
 * 將js.js更名成inner.js。
 * 修正按下enter會觸發br標籤的bug，改成按鍵輸入。
 
+2023/4/23:
+* 增加tag功能。
+
 2023/5/1:
-* 重新規劃路由
-* 增加hanamaruWeb
+* 重新規劃路由。
+* 增加HanamaruWeb。
+
+2023/5/4:
+* 更改js, css的路徑。
+* 美化HanamaruWeb。
+
+2023/5/6:
+* 增加fontawesome的icon
+* 增加Animate.css以及wow.js
+* 製作markdown轉html介面(利用showdown)
+* 修改js函式名稱
+* 細部調整html
+* 修改css名稱

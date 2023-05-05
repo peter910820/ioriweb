@@ -1,45 +1,56 @@
-{% extends "main.html" %}
+{% extends "base.html" %}
 
 {% block title %}新增文章{% endblock %}
 {% block page %}Add new article{% endblock %}
 {% block main %}
-    <form class="row g-3 was-validated" action="/galgame/submmit" method="post">
-        <div class="col-md-12">
+    <form class="row g-3 was-validated" action="/hanamaru/submmit" method="post">
+        <div class="col-md-4">
             <label for="workName" class="form-label">標題</label>
             <input type="text" name='information' class="form-control" id="workName" value="" required>
-            <div id="workNameFeedback" class="invalid-feedback">
-                請填寫標題
-            </div>
+            <div id="workNameFeedback" class="invalid-feedback">請填寫標題</div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <label for="author" class="form-label">作者</label>
             <input type="text" name='information' class="form-control" id="author" value="" required>
-            <div id="authorFeedback" class="invalid-feedback">
-                請填寫作者
-            </div>
+            <div id="authorFeedback" class="invalid-feedback">請填寫作者</div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <label for="tag" class="form-label">標籤</label>
             <select id="tag" name='information' class="form-select is-invalid" required>
                 <option selected disabled value="">選擇標籤...</option>
-                <option>泣系類型</option>
+                <option>A</option>
             </select>
         </div>
+        <div class="col-6">
+            <label for="markdown" class="form-label">內文(採用MarkDown格式)</label>
+            <textarea name='information' class="form-control is-invalid textarea__markdown" id="markdown" rows="3" placeholder="文章不得為空白(請使用MarkDown格式)" required></textarea>
+        </div>
+        <div class="col-6">
+            <label for="translation" class="form-label">內文預覽</label>
+            <div id="translation"></div>
+        </div>
         <div class="col-12">
-            <label for="experience" class="form-label">內文/心得-(採用HTML格式)</label>
-            <textarea name='information' class="form-control is-invalid" id="experience" rows="3" placeholder="文章不得為空白" required></textarea>
+            <button onclick="insertHasendtag('h1')" type="button"><i class="fa-solid fa-h fa-fade fa-lg"></i></button>
+            <button onclick="insertHasendtag('h2')" type="button"><i class="fa-solid fa-h fa-fade fa-lg"></i></button>
+            <button onclick="insertHasendtag('h3')" type="button"><i class="fa-solid fa-h fa-fade fa-lg"></i></button>
+            <button onclick="insertHasendtag('h4')" type="button"><i class="fa-solid fa-h fa-fade fa-lg"></i></button>
+            <button onclick="insertMarkdown('**')" type="button"><i class="fa-solid fa-bold fa-fade fa-lg"></i></button>
+            <button onclick="insertMarkdown('*')" type="button"><i class="fa-solid fa-italic fa-fade fa-lg"></i></button>
+            <button onclick="insertMarkdown('```')" type="button"><i class="fa-solid fa-code fa-fade fa-lg"></i></button>
+            <button onclick="insertMarkdown('* ')" type="button"><i class="fa-solid fa-list-ul fa-fade fa-lg"></i></button>
+            <button onclick="insertHasendtag('u')" type="button"><i class="fa-solid fa-underline fa-fade fa-lg"></i></button>
+            <button onclick="insertHasendtag('del')" type="button"><i class="fa-solid fa-text-slash fa-fade fa-lg"></i></button>
+            <button onclick="insertWithoutendtag('br')" type="button"><i class="fa-solid fa-arrows-up-down fa-fade fa-lg"></i></button>
+            <input type="color" id="color" name="color" class="form-control-color d-inline-block">
+            <button onclick="cl()" type="button">預覽鍵</button>
         </div>
         <div class="col-auto">
             <label for="password" class="form-label">請輸入密碼</label>
             <input type="password" name='information' class="form-control is-invalid" id="password" placeholder="Password" required>
         </div>
-        
         <div class="col-12">
             <button class="btn btn-primary" type="submit">送出</button>
         </div>
     </form>
-    <form>
-        <textarea id="text" cols="40" rows="3"></textarea>
-        <input type="button" value="[tag_label]" />
-    </form>
 {% endblock %}
+{% block script %}{% endblock %}
