@@ -1,22 +1,21 @@
 import uvicorn
-from fastapi import FastAPI, Request, HTTPException, Form, Cookie, Response
+from fastapi import FastAPI, Request, HTTPException, Form, Cookie, Response,UploadFile,File
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
 import os, psycopg2
 
+from src.hanamaruWeb import DatabaseControl
 from src.data_control import DataControl
-
-f= open("./abs.txt","w+")
 
 app = FastAPI(docs_url=None, redoc_url=None)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/static/css", StaticFiles(directory="static/css"), name="static/css")
 
 templates = Jinja2Templates(directory="templates")
-galgame = Jinja2Templates(directory="templates/GalgameWeb")
 hanamaru = Jinja2Templates(directory="templates/HanamaruWeb")
+galgame = Jinja2Templates(directory="templates/GalgameWeb")
 
 # @app.get("/home/{home}")
 # async def index(home):
@@ -28,15 +27,53 @@ async def root(request: Request):
 #------------------------------------------------------------------------------#
 
 @app.get("/hanamaru", response_class=HTMLResponse)
-async def galgameRoot(request: Request):
-    return hanamaru.TemplateResponse('home.html',{'request': request})
+async def hanamaru_root(request: Request):
+    try:
+        #initialization(make HanamaruWeb article image)
+        db = psycopg2.connect('postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb')
+        cursor = db.cursor()
+        amount = len(os.listdir('./static/img/hanamaruWeb/article_img/'))
+        if amount == 1:
+            cursor.execute('''SELECT title, article_img FROM hanamaruWeb_article;''')
+            data = cursor.fetchall()
+            for d in data:
+                file = open(f"./static/img/hanamaruWeb/article_img/{d[0]}.png","wb")
+                file.write(d[1])
+                file.close
+    except:
+        print('HanamaruWeb article image create failed!')
+        return hanamaru.TemplateResponse('error.html',{'request': request})
+    try:    
+        cursor.execute('''SELECT title, author, tag, create_time FROM hanamaruWeb_article;''')
+        data = cursor.fetchall()
+        return hanamaru.TemplateResponse('home.html',{'request': request, 'data' : data})
+    except:
+        print('Select database failed!')
+        return hanamaru.TemplateResponse('error.html',{'request': request})
 
 @app.get("/hanamaru/newarticle", response_class=HTMLResponse)
-async def testter(request: Request):
+async def hanamaru_newarticle(request: Request):
     return hanamaru.TemplateResponse('newArticle.html',{'request': request})
 
+@app.post("/hanamaru/submit", response_class=HTMLResponse)
+async def hanamaru_submit(request: Request, image: UploadFile = File(...), information : list = Form(...)):
+    if information[-1] == '0000':
+        if image.filename[-3:] == 'png' or image.filename[-3:] == 'jpg':
+            information[0] = information[0] + '.' + image.filename[-3:]
+            contents = image.file.read()
+            control = DatabaseControl()
+            control.article_insert(contents, information)
+            file = open(f'./static/img/hanamaruWeb/article_img/{information[0]}','wb')
+            file.write(contents)
+            file.close
+        else:
+            print('File is not a image!')
+    else:
+        print('Password error!')
+    return hanamaru.TemplateResponse('submit.html',{'request': request})
+
 @app.get("/hanamaru/testter", response_class=HTMLResponse)
-async def testter(request: Request):
+async def hanamaru_testter(request: Request):
     return hanamaru.TemplateResponse('testter.html',{'request': request})
 
 #------------------------------------------------------------------------------#
@@ -95,7 +132,7 @@ async def submmit(request: Request, information : list = Form(...)):
         article_array[6]  = 'https://www.youtube.com/embed/' + article_array[6][32:]
         data_control.galgameArticle_insert(article_array, articleTitle_array)
     else:
-        print('password error')
+        print('password error!')
     return galgame.TemplateResponse('/submmit.html',{'request':request})
 
 @app.post("/galgame/sabi", response_class=HTMLResponse)
@@ -109,6 +146,6 @@ async def sabi(request: Request, tagInformation : list = Form(...)):
         print('password error')
     return galgame.TemplateResponse('/submmit.html',{'request':request})
 
-# if __name__ == "__main__":
-#     port = int(os.environ.get('PORT', 5000))
-#     uvicorn.run("main:app", host="127.0.0.1", port=port, reload=True)
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    uvicorn.run("main:app", host="127.0.0.1", port=port, reload=True)

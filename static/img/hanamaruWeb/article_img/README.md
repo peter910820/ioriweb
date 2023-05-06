@@ -1,0 +1,1 @@
+This folder is use to storge the auto create image file.

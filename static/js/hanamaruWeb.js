@@ -16,11 +16,11 @@ $(document).ready(function() {
       });
   });
 
+
 let typed = new Typed('.typer', {
     strings: ['歡迎來到，', '沒事有事都會維護的神奇網站'],
     typeSpeed: 80,
 }); // https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js
-
 
 function cl(){
     let converter = new showdown.Converter();
@@ -28,6 +28,7 @@ function cl(){
     let html = converter.makeHtml(md);
     console.log(html);
     document.getElementById("translation").innerHTML = html;
+    document.getElementById("translation__insert").value = html;
     }
 
 function insertMarkdown(element){

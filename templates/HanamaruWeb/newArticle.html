@@ -3,7 +3,7 @@
 {% block title %}新增文章{% endblock %}
 {% block page %}Add new article{% endblock %}
 {% block main %}
-    <form class="row g-3 was-validated" action="/hanamaru/submmit" method="post">
+    <form class="row g-3 was-validated" action="/hanamaru/submit" method="post" enctype="multipart/form-data" >
         <div class="col-md-4">
             <label for="workName" class="form-label">標題</label>
             <input type="text" name='information' class="form-control" id="workName" value="" required>
@@ -22,17 +22,18 @@
             </select>
         </div>
         <div class="col-12">
-            <label for="tag" class="form-label">文章圖片</label>
-            <input type="file" class="form-control" name='information' id="mainImg" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
+            <label for="tag" class="form-label">文章圖片(請上傳.jpg或.png的檔案)</label>
+            <input type="file" class="form-control" name='image' id="mainImg" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
         </div>
         <div class="col-6">
             <label for="markdown" class="form-label">內文(採用MarkDown格式)</label>
-            <textarea name='information' class="form-control is-invalid textarea__markdown" id="markdown" rows="3" placeholder="文章不得為空白(請使用MarkDown格式)" required></textarea>
+            <textarea class="form-control is-invalid textarea__markdown" id="markdown" rows="3" placeholder="文章不得為空白(請使用MarkDown格式)" required></textarea>
         </div>
         <div class="col-6">
             <label for="translation" class="form-label">內文預覽</label>
             <div id="translation"></div>
         </div>
+        <input name='information' id="translation__insert" class="input__hidden"></input>
         <div class="col-12">
             <button onclick="insertHasendtag('h1')" type="button"><i class="fa-solid fa-h fa-fade fa-lg"></i></button>
             <button onclick="insertHasendtag('h2')" type="button"><i class="fa-solid fa-h fa-fade fa-lg"></i></button>
