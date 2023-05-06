@@ -8,6 +8,8 @@ import os, psycopg2
 
 from src.data_control import DataControl
 
+f= open("./abs.txt","w+")
+
 app = FastAPI(docs_url=None, redoc_url=None)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/static/css", StaticFiles(directory="static/css"), name="static/css")
