@@ -37,7 +37,7 @@ async def hanamaru_root(request: Request):
             cursor.execute('''SELECT title, article_img FROM hanamaruWeb_article;''')
             data = cursor.fetchall()
             for d in data:
-                file = open(f"./static/img/hanamaruWeb/article_img/{d[0]}.png","wb")
+                file = open(f"./static/img/hanamaruWeb/article_img/{d[0]}","wb")
                 file.write(d[1])
                 file.close
     except:
