@@ -7,7 +7,7 @@
         <div class="col-md-4">
             <label for="workName" class="form-label">標題</label>
             <input type="text" name='information' class="form-control" id="workName" value="" required>
-            <div id="workNameFeedback" class="invalid-feedback">請填寫標題</div>
+            <div id="workNameFeedback" class="invalid-feedback">請填寫標題(請不要輸入非法字元(冒號分號之類的))</div>
         </div>
         <div class="col-md-4">
             <label for="author" class="form-label">作者</label>
@@ -18,7 +18,10 @@
             <label for="tag" class="form-label">標籤</label>
             <select id="tag" name='information' class="form-select is-invalid" required>
                 <option selected disabled value="">選擇標籤...</option>
-                <option>A</option>
+                <option>技術文章</option>
+                <option>電腦問題</option>
+                <option>程式語言</option>
+                <option>日常紀錄</option>
             </select>
         </div>
         <div class="col-12">
@@ -52,6 +55,9 @@
         <div class="col-auto">
             <label for="password" class="form-label">請輸入密碼</label>
             <input type="password" name='information' class="form-control is-invalid" id="password" placeholder="Password" required>
+        </div>
+        <div class="col-12">
+            <label class="label__hint">注意! markdown轉html系統不支援顯示高光，但實際文章顯示會有黑底高光，請不要手動添加高光。</label>
         </div>
         <div class="col-12">
             <button class="btn btn-primary" type="submit">送出</button>

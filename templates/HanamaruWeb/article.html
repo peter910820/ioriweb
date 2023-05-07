@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}文章{% endblock %}
+{% block page %}Article{% endblock %}
+{% block main %}
+<div>
+    {{ articleData|safe }}
+</div>
+{% endblock %}
+{% block script %}<script>hljs.highlightAll()</script>{% endblock %}

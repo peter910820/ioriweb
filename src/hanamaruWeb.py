@@ -1,4 +1,4 @@
-import psycopg2, datetime
+import psycopg2, datetime, re
 
 class DatabaseControl():
 
@@ -15,10 +15,13 @@ class DatabaseControl():
             print('Database connect error!')
             return 1
         currentDateTime = datetime.datetime.now().replace(microsecond=0)
+        pattern = re.compile(r'<[^>]+>', re.S)
+        introduction = pattern.sub('', information[3])
+        introduction = introduction[0:120]
         cursor = db.cursor()
-        insertQuery = """INSERT INTO hanamaruWeb_article VALUES (%s, %s, %s, %s, %s, %s);"""
+        insertQuery = """INSERT INTO hanamaruWeb_article VALUES (%s, %s, %s, %s, %s, %s, %s);"""
         cursor.execute(insertQuery, 
-                (information[0], information[1], information[2], information[3], contents, currentDateTime))
+                (information[0], information[1], information[2], introduction, information[3], contents, currentDateTime))
         db.commit()
         cursor.close()
         db.close()

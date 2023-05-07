@@ -26,9 +26,11 @@ function cl(){
     let converter = new showdown.Converter();
     let md = document.getElementById("markdown").value;
     let html = converter.makeHtml(md);
-    console.log(html);
     document.getElementById("translation").innerHTML = html;
-    document.getElementById("translation__insert").value = html;
+    divValue = html.replace(/\t/g, "\\u0009"); // 將 \t 替換為 \u0009
+    divValue = html.replace(/\n/g, "\\u000A"); // 將 \n 替換為 \u000A
+    document.getElementById("translation__insert").value = divValue;
+    console.log(document.getElementById("translation__insert").value);
     }
 
 function insertMarkdown(element){

@@ -2,3 +2,5 @@
 /database
 /src/__pycache__
 /record.js
+/static/img/hanamaruWeb/article_img/*.png
+/static/img/hanamaruWeb/article_img/*.jpg

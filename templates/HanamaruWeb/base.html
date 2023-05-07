@@ -3,22 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ url_for('static/css', path='/hanamaruWeb.css') }}">
         <link rel="icon" href="{{ url_for('static', path='img/icon.ico') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link href="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://kit.fontawesome.com/8f1caa7fe1.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/atom-one-dark.min.css">
+        <script src="https://unpkg.com/showdown@2.1.0/dist/showdown.min.js"></script>
         <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+
         <title>海獺的個人網頁:{% block title %}{% endblock %}</title>
     </head>
     <body class="body">
         <nav class="navbar navbar-light" style="background-color: #f897e0;">
             <div class="container-fluid">
-              <a class="navMain boldText" href="/hanamaru">海獺的個人網頁</a>
+              <a class="navMain boldText" href="/hanamaru"><i class="fa-solid fa-house fa-flip fa-2xl"></i></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -46,7 +50,7 @@
               </div>
             </div>
         </nav>
-        <div class="row container-fluid">
+        <div class="row container-fluid div__main">
           <div class="col-2 text-center" id="leftSection">
             <h3 class="tag">標籤:</h3>
           </div>
@@ -58,7 +62,7 @@
               <div class="ty">
                   <span class="span__mainText">海獺的個人網頁-</span>
                   <span class="typer"></span>
-                  <h2 class="textJP">{% block page %}{% endblock %}</h2>
+                  <h2>{% block page %}{% endblock %}</h2>
                   <hr class="my-4">
               </div>
               {% block main %}{% endblock %}
@@ -69,7 +73,7 @@
               </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
         <script src="../../static/js/hanamaruWeb.js"></script>
         {% block script %}{% endblock %}
     </body>

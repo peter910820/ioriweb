@@ -4,7 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
-import os, psycopg2
+import os, re, psycopg2
 
 from src.hanamaruWeb import DatabaseControl
 from src.data_control import DataControl
@@ -44,7 +44,7 @@ async def hanamaru_root(request: Request):
         print('HanamaruWeb article image create failed!')
         return hanamaru.TemplateResponse('error.html',{'request': request})
     try:    
-        cursor.execute('''SELECT title, author, tag, create_time FROM hanamaruWeb_article;''')
+        cursor.execute('''SELECT title, author, tag, introduction, create_time FROM hanamaruWeb_article;''')
         data = cursor.fetchall()
         return hanamaru.TemplateResponse('home.html',{'request': request, 'data' : data})
     except:
@@ -66,11 +66,28 @@ async def hanamaru_submit(request: Request, image: UploadFile = File(...), infor
             file = open(f'./static/img/hanamaruWeb/article_img/{information[0]}','wb')
             file.write(contents)
             file.close
+            return hanamaru.TemplateResponse('submit.html',{'request': request})
         else:
             print('File is not a image!')
+            return hanamaru.TemplateResponse('error.html',{'request': request})
     else:
         print('Password error!')
-    return hanamaru.TemplateResponse('submit.html',{'request': request})
+        return hanamaru.TemplateResponse('error.html',{'request': request})
+
+@app.get("/hanamaru/article/{articleTitle}", response_class=HTMLResponse)
+async def hanamaru_articleTitle(request: Request, articleTitle):
+    try:
+        db = psycopg2.connect('postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb')
+        cursor = db.cursor()
+        cursor.execute(f'''SELECT content FROM hanamaruWeb_article WHERE title LIKE '{articleTitle}.___';''')
+        data = cursor.fetchall()
+        tmp =  data[0][0]
+        articleData = tmp.replace('\\u0009', '\t').replace('\\u000A', '\n')
+        return hanamaru.TemplateResponse('/article.html',{'request': request, 'articleData' : articleData})
+    except:
+        print('sql error!')
+        return hanamaru.TemplateResponse('/error.html',{'request': request})
+
 
 @app.get("/hanamaru/testter", response_class=HTMLResponse)
 async def hanamaru_testter(request: Request):
@@ -146,6 +163,6 @@ async def sabi(request: Request, tagInformation : list = Form(...)):
         print('password error')
     return galgame.TemplateResponse('/submmit.html',{'request':request})
 
-# if __name__ == "__main__":
-#     port = int(os.environ.get('PORT', 5000))
-#     uvicorn.run("main:app", host="127.0.0.1", port=port, reload=True)
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    uvicorn.run("main:app", host="127.0.0.1", port=port, reload=True)
