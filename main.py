@@ -1,10 +1,12 @@
-import uvicorn
-from fastapi import FastAPI, Request, HTTPException, Form, Cookie, Response,UploadFile,File
+import uvicorn, os, psycopg2
+from fastapi import FastAPI, Request, UploadFile, HTTPException, Response
+from fastapi import Form, File, Cookie
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
-import os, re, psycopg2
+
+from psycopg2 import OperationalError, ProgrammingError #error import
 
 from src.hanamaruWeb import DatabaseControl
 from src.data_control import DataControl
@@ -17,13 +19,10 @@ templates = Jinja2Templates(directory="templates")
 hanamaru = Jinja2Templates(directory="templates/HanamaruWeb")
 galgame = Jinja2Templates(directory="templates/GalgameWeb")
 
-# @app.get("/home/{home}")
-# async def index(home):
-#     return {"message": home}
-
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
     return templates.TemplateResponse('index.html',{'request': request})
+
 #------------------------------------------------------------------------------#
 
 @app.get("/hanamaru", response_class=HTMLResponse)
@@ -39,17 +38,26 @@ async def hanamaru_root(request: Request):
             for d in data:
                 file = open(f"./static/img/hanamaruWeb/article_img/{d[0]}","wb")
                 file.write(d[1])
-                file.close
-    except:
-        print('HanamaruWeb article image create failed!')
-        return hanamaru.TemplateResponse('error.html',{'request': request})
-    try:    
+                file.close()
         cursor.execute('''SELECT title, author, tag, introduction, create_time FROM hanamaruWeb_article;''')
         data = cursor.fetchall()
         return hanamaru.TemplateResponse('home.html',{'request': request, 'data' : data})
+    except OperationalError:
+        err = 'Database connect failed.'
+        print(err)
+        return hanamaru.TemplateResponse('error.html',{'request': request, 'err': err})
+    except ProgrammingError:
+        err = 'Table name or columns name is wrong.'
+        print(err)
+        return hanamaru.TemplateResponse('error.html',{'request': request, 'err': err})
+    except FileNotFoundError:
+        err = 'Folder path probably is wrong.'
+        print(err)
+        return hanamaru.TemplateResponse('error.html',{'request': request, 'err': err})
     except:
-        print('Select database failed!')
-        return hanamaru.TemplateResponse('error.html',{'request': request})
+        err = 'Another error has occur.'
+        print(err)
+        return hanamaru.TemplateResponse('error.html',{'request': request, 'err': err})
 
 @app.get("/hanamaru/newarticle", response_class=HTMLResponse)
 async def hanamaru_newarticle(request: Request):
@@ -57,22 +65,29 @@ async def hanamaru_newarticle(request: Request):
 
 @app.post("/hanamaru/submit", response_class=HTMLResponse)
 async def hanamaru_submit(request: Request, image: UploadFile = File(...), information : list = Form(...)):
-    if information[-1] == '0000':
-        if image.filename[-3:] == 'png' or image.filename[-3:] == 'jpg':
-            information[0] = information[0] + '.' + image.filename[-3:]
-            contents = image.file.read()
-            control = DatabaseControl()
-            control.article_insert(contents, information)
-            file = open(f'./static/img/hanamaruWeb/article_img/{information[0]}','wb')
-            file.write(contents)
-            file.close
-            return hanamaru.TemplateResponse('submit.html',{'request': request})
+    try:
+        if information[-1] == '0000':
+            if image.filename[-3:] == 'png' or image.filename[-3:] == 'jpg':
+                information[0] = information[0] + '.' + image.filename[-3:]
+                contents = image.file.read()
+                control = DatabaseControl()
+                control.article_insert(contents, information)
+                file = open(f'./static/img/hanamaruWeb/article_img/{information[0]}','wb')
+                file.write(contents)
+                file.close()
+                return hanamaru.TemplateResponse('submit.html',{'request': request})
+            else:
+                err = 'File is not a image.'
+                print(err)
+                return hanamaru.TemplateResponse('error.html',{'request': request, 'err': err})
         else:
-            print('File is not a image!')
-            return hanamaru.TemplateResponse('error.html',{'request': request})
-    else:
-        print('Password error!')
-        return hanamaru.TemplateResponse('error.html',{'request': request})
+            err = 'Password error.'
+            print(err)
+            return hanamaru.TemplateResponse('error.html',{'request': request, 'err': err})
+    except: 
+        err = 'A error has occur.'
+        print(err)
+        return hanamaru.TemplateResponse('error.html',{'request': request, 'err': err})
 
 @app.get("/hanamaru/article/{articleTitle}", response_class=HTMLResponse)
 async def hanamaru_articleTitle(request: Request, articleTitle):
@@ -85,8 +100,9 @@ async def hanamaru_articleTitle(request: Request, articleTitle):
         articleData = tmp.replace('\\u0009', '\t').replace('\\u000A', '\n')
         return hanamaru.TemplateResponse('/article.html',{'request': request, 'articleData' : articleData})
     except:
-        print('sql error!')
-        return hanamaru.TemplateResponse('/error.html',{'request': request})
+        err = 'SQL error.'
+        print(err)
+        return hanamaru.TemplateResponse('/error.html',{'request': request, 'err': err})
 
 
 @app.get("/hanamaru/testter", response_class=HTMLResponse)
@@ -163,6 +179,6 @@ async def sabi(request: Request, tagInformation : list = Form(...)):
         print('password error')
     return galgame.TemplateResponse('/submmit.html',{'request':request})
 
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    uvicorn.run("main:app", host="127.0.0.1", port=port, reload=True)
+# if __name__ == "__main__":
+#     port = int(os.environ.get('PORT', 5000))
+#     uvicorn.run("main:app", host="127.0.0.1", port=port, reload=True)

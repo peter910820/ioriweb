@@ -1,5 +1,6 @@
 /__pycache__
 /database
+/test
 /src/__pycache__
 /record.js
 /static/img/hanamaruWeb/article_img/*.png
