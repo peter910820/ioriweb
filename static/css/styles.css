@@ -38,14 +38,6 @@ a{
 .navTitle:hover{
     font-size: 20px;
 }
-
-.timeColor {
-    color: hotpink;
-}
-.dateColor {
-    color: darkorchid;
-}
-
 .galgameTitle{
     font-size: 20px;
     /* border:none;
@@ -68,11 +60,6 @@ a{
 .bodyMask {
     background: rgba(255, 255, 255, 0.85);
     margin-bottom: 0px;
-}
-.timerSize{
-    font-size: 25px;
-    font-weight: bold;
-    color: coral;
 }
 .code{
     font-size:  20px;

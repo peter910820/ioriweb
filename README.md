@@ -2,6 +2,8 @@
 
 ## 海獺的個人網站(galgame紀錄): 警告:此專案已停止維護，新的專案使用JS改寫 [hiiragiharu0820](https://github.com/peter910820/hiiragiharu0820)
 
+目前此專案暫時停更(應該是永久)
+
 目前主要想放Galgame心得，之後可能會繼續放日常的東西，歡迎訂閱我的YouTube以及追蹤我的Twitter。
 
 **Twitter: https://twitter.com/seaotterMS**
