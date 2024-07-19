@@ -1,9 +1,9 @@
-import psycopg2, datetime
+import psycopg2, datetime, os
 
 class DataControl():
 
     def __init__(self):
-        self.DATABASE_URL = 'postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb'
+        self.DATABASE_URL = os.getenv("SQL_URL")
 
 
     def galgameArticle_insert(self, article_array, articleTitle_array):

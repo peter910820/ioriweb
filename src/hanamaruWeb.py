@@ -1,9 +1,9 @@
-import psycopg2, datetime, re
+import psycopg2, datetime, re, os
 
 class DatabaseControl():
 
     def __init__(self):
-        self.DATABASE_URL = 'postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb'
+        self.DATABASE_URL = os.getenv("SQL_URL")
 
     def article_insert(self, contents, information):
         if len(information[0]) >= 100 or len(information[1]) >= 20 or len(information[2]) >= 255:

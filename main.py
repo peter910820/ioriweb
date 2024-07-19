@@ -7,9 +7,12 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
 
 from psycopg2 import OperationalError, ProgrammingError #error import
+from dotenv import load_dotenv
 
 from src.hanamaruWeb import DatabaseControl
 from src.data_control import DataControl
+
+load_dotenv()
 
 app = FastAPI(docs_url=None, redoc_url=None)
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -29,7 +32,7 @@ async def root(request: Request):
 async def hanamaru_root(request: Request):
     try:
         #initialization(make HanamaruWeb article image)
-        db = psycopg2.connect('postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb')
+        db = psycopg2.connect(os.getenv("SQL_URL"))
         cursor = db.cursor()
         amount = len(os.listdir('./static/img/hanamaruWeb/article_img/'))
         if amount == 1:
@@ -92,7 +95,7 @@ async def hanamaru_submit(request: Request, image: UploadFile = File(...), infor
 @app.get("/hanamaru/article/{articleTitle}", response_class=HTMLResponse)
 async def hanamaru_articleTitle(request: Request, articleTitle):
     try:
-        db = psycopg2.connect('postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb')
+        db = psycopg2.connect(os.getenv("SQL_URL"))
         cursor = db.cursor()
         cursor.execute(f'''SELECT content FROM hanamaruWeb_article WHERE title LIKE '{articleTitle}.___';''')
         data = cursor.fetchall()
@@ -113,7 +116,7 @@ async def hanamaru_testter(request: Request):
 
 @app.get("/galgame", response_class=HTMLResponse)
 async def galgameRoot(request: Request):
-    db = psycopg2.connect('postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb')
+    db = psycopg2.connect(os.getenv("SQL_URL"))
     cursor = db.cursor()
     cursor.execute('''SELECT * FROM galgameTitle;''')
     data = cursor.fetchall()
@@ -145,7 +148,7 @@ async def aboutme(request: Request):
 
 @app.get("/galgame/newGalgameArticle", response_class=HTMLResponse)
 async def newGalgameArticle(request: Request):
-    db = psycopg2.connect('postgres://seaotter:OC5okdJZpXu3zo8RSmpKyyowcfrawdPh@dpg-cgpajv0u9tun42shmebg-a.oregon-postgres.render.com/ioriweb')
+    db = psycopg2.connect(os.getenv("SQL_URL"))
     cursor = db.cursor()
     cursor.execute('''SELECT * FROM tag;''')
     data = cursor.fetchall()
