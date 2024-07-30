@@ -10,6 +10,9 @@
 
 **YouTube: https://www.youtube.com/@Seaotter_MS/videos**
 
+2024/7/30:
+* 架到render(沒資料庫)
+
 <h2>2023年五月更新</h2><details>
 <summary>點我展開</summary>
 </br>
