@@ -1,0 +1,3 @@
+templates/*.html linguist-vendored
+templates/GalgameWeb/*.html linguist-vendored
+templates/HanamaruWeb/*.html linguist-vendored
